@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://arkchillfamily.github.io/site-revue-mili-/sitemap.xml
+Sitemap: https://-/sitemap.xml
 
 # Optimisation crawl
 Crawl-delay: 1
