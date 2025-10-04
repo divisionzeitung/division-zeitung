@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://-/sitemap.xml
+Sitemap: https://divisionzeintung.github.io/divisionzeitung-/sitemap.xml
 
 # Optimisation crawl
 Crawl-delay: 1
