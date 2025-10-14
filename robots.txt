@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /scripts/
+Disallow: /private/
 Sitemap: https://divisionzeintung.github.io/divisionzeitung-/sitemap.xml
 
 # Optimisation crawl
