@@ -1,0 +1,119 @@
+:root {
+  --accent: #b8860b;
+  --accent-light: #daa520;
+  --muted: #6b5b47;
+  --card: #ffffff;
+  --bg: #f6f4f0;
+  --sand: #d2b48c;
+  --warm: #8b7355;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg) url('../images/panzer-fond.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+.overlay {
+  background: rgba(246, 244, 240, 0.85);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid var(--sand);
+  text-align: center;
+  padding: 24px 16px;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--warm);
+  font-size: 26px;
+}
+
+header a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+header a:hover {
+  color: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--card);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--sand);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: var(--accent);
+  margin-top: 32px;
+  font-size: 20px;
+}
+
+p, li {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 2px solid var(--sand);
+  border-radius: 12px 12px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: var(--accent-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    margin: 20px 12px;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
