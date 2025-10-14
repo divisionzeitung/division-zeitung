@@ -70,12 +70,19 @@ nav {
 }
 
 .nav-menu {
+    /* --- DÉBUT DES MODIFICATIONS POUR SUPPORTER <ul> ET <li> --- */
+    list-style: none; /* Supprime les puces */
+    margin: 0; /* Supprime la marge par défaut */
+    padding: 0; /* Supprime le padding par défaut */
+    /* --- FIN DES MODIFICATIONS --- */
+    
     display: flex;
     gap: 24px;
     align-items: center;
     flex-wrap: wrap
 }
 
+/* La classe .nav-item cible toujours les liens (<a>) à l'intérieur */
 .nav-item {
     cursor: pointer;
     padding: 8px 16px;
