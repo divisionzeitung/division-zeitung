@@ -33,8 +33,8 @@
           <li><a href="index.html" class="nav-item active">Accueil</a></li>
           <li><a href="presentation.html" class="nav-item">Présentation</a></li>
           <li class="nav-dropdown">
-            <span class="nav-item" id="archives-dropdown">
-              Mes articles et livres
+            <span class="nav-item nav-dropdown-toggle" id="archives-dropdown">
+              Mes articles et livres <span class="arrow">▼</span>
             </span>
             <div class="nav-dropdown-content">
               <a href="livres-hors-series.html">Livres et Hors Séries</a>
@@ -120,91 +120,68 @@ Chaque texte résulte d'un travail minutieux de vérification et de recoupement.
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         
-        // --- A. LOGIQUE DE NAVIGATION (Gestion des pages internes) ---
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        const pageSections = document.querySelectorAll('.page');
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                
-                const href = this.getAttribute('href');
-                
-                // Si l'élément est le bouton du menu déroulant (B. LOGIQUE DU MENU DÉROULANT), on ne fait rien ici
-                if (this.id === 'archives-dropdown') {
-                    // La logique de déroulement est gérée plus bas
-                } else {
-                    
-                    let targetId;
-                    // Détermine si l'URL est 'index.html' (accueil) ou un autre fichier
-                    if (href === 'index.html') {
-                        targetId = 'accueil'; 
-                    } else {
-                        // Pour les autres fichiers .html, on cherche l'ID (ex: presentation.html -> 'presentation')
-                        targetId = href.substring(0, href.lastIndexOf('.'));
-                    }
-
-                    const targetPage = document.getElementById(targetId);
-
-                    // 1. Gère les styles de l'onglet actif
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-
-                    // 2. Gère l'affichage du contenu
-                    if (targetPage) {
-                        // **CORRECTION CRUCIALE** : Empêche le changement de page SEULEMENT si la section interne existe.
-                        e.preventDefault(); 
-                        pageSections.forEach(page => page.classList.remove('active'));
-                        targetPage.classList.add('active');
-                    }
-                    // Si targetPage n'existe pas, le lien vers le fichier HTML externe fonctionne normalement.
-                }
-            });
-        });
-
-        
-        // --- B. LOGIQUE DU MENU DÉROULANT (Utilisation de la classe 'open') ---
+        // --- MENU DÉROULANT SIMPLIFIÉ ---
         const dropdownToggle = document.getElementById('archives-dropdown');
-        // On cible le div juste après le bouton (le contenu du menu)
-        const dropdownContent = dropdownToggle ? dropdownToggle.nextElementSibling : null;
-
-        if (dropdownToggle && dropdownContent) {
+        
+        if (dropdownToggle) {
             dropdownToggle.addEventListener('click', function(e) {
-                // Empêche l'événement de se propager pour éviter la fermeture immédiate par l'écouteur du document
-                e.stopPropagation(); 
                 e.preventDefault();
+                e.stopPropagation();
                 
-                // Ferme tous les autres menus ouverts (sécurité si vous en aviez plusieurs)
-                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-                    if (content !== dropdownContent) {
-                        content.classList.remove('open');
-                    }
-                });
-
-                // Basculement : Ajoute ou retire la classe 'open'
-                dropdownContent.classList.toggle('open'); 
-            });
-            
-            // Permet aux liens du menu déroulant de fonctionner sans fermer le menu tout de suite
-            dropdownContent.addEventListener('click', function(e) {
-                e.stopPropagation(); 
-                // Optionnel : ferme le menu après avoir cliqué sur un lien dedans
-                dropdownContent.classList.remove('open');
+                // Trouve le parent li.nav-dropdown
+                const dropdownParent = this.closest('.nav-dropdown');
+                const dropdownContent = dropdownParent.querySelector('.nav-dropdown-content');
+                
+                // Toggle la classe open
+                dropdownContent.classList.toggle('open');
+                
+                // Anime la flèche
+                const arrow = this.querySelector('.arrow');
+                if (arrow) {
+                    arrow.style.transform = dropdownContent.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
             });
         }
         
-        // --- C. LOGIQUE : FERMER AU CLIC EXTÉRIEUR ---
+        // Fermer au clic extérieur
         document.addEventListener('click', function(e) {
-            // Vérifie si le clic a eu lieu à l'extérieur de la zone du menu déroulant
-            const isClickInsideDropdown = e.target.closest('.nav-dropdown');
-            
-            if (!isClickInsideDropdown) {
-                // Ferme tous les menus qui ont la classe 'open'
+            if (!e.target.closest('.nav-dropdown')) {
                 document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
                     content.classList.remove('open');
+                });
+                document.querySelectorAll('.arrow').forEach(arrow => {
+                    arrow.style.transform = 'rotate(0deg)';
                 });
             }
         });
 
+        // --- NAVIGATION ENTRE PAGES ---
+        const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-dropdown-content a)');
+        const pageSections = document.querySelectorAll('.page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                let targetId;
+                if (href === 'index.html') {
+                    targetId = 'accueil'; 
+                } else {
+                    targetId = href.substring(0, href.lastIndexOf('.'));
+                }
+
+                const targetPage = document.getElementById(targetId);
+
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+
+                if (targetPage) {
+                    e.preventDefault(); 
+                    pageSections.forEach(page => page.classList.remove('active'));
+                    targetPage.classList.add('active');
+                }
+            });
+        });
     });
 </script>
 </body>
