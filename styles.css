@@ -652,13 +652,4 @@ form label {
         flex: none;
     }
 }
-.liste-articles {
-  list-style-type: "✦ "; 
-  padding-left: 1.5em;
-  font-family: "Georgia", serif;
-  line-height: 1.6;
-}
 
-.liste-articles li {
-  margin: 0.4em 0;
-}
