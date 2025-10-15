@@ -118,7 +118,7 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
     </p>
   </footer>
 
- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         
         // --- A. LOGIQUE DE NAVIGATION (AFFICHAGE DES PAGES ET DES ONGLETS ACTIFS) ---
@@ -128,9 +128,8 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 
-                // Empêche le navigateur de recharger la page pour toutes les navigations
-                e.preventDefault(); 
-                
+                // e.preventDefault() a été retiré d'ici
+
                 const href = this.getAttribute('href');
                 
                 // On s'assure que le clic n'est pas celui sur l'élément du menu déroulant (le titre)
@@ -140,24 +139,26 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
                     // Détermine l'ID de la section à afficher:
                     let targetId;
                     if (href === 'index.html') {
-                        targetId = 'accueil'; // L'ID que vous avez utilisé dans le HTML est "accueil"
+                        targetId = 'accueil'; 
                     } else {
                         // Pour tous les autres fichiers .html
                         targetId = href.substring(0, href.lastIndexOf('.'));
                     }
 
-                    // 1. Gère les styles de l'onglet actif
+                    const targetPage = document.getElementById(targetId);
+
+                    // 1. Gère les styles de l'onglet actif (doit se faire avant le changement de page)
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
 
                     // 2. Gère l'affichage du contenu
-                    pageSections.forEach(page => page.classList.remove('active'));
-                    
-                    const targetPage = document.getElementById(targetId);
-                    
                     if (targetPage) {
+                        // ON EMPÊCHE LE CHANGEMENT DE PAGE SEULEMENT SI LA SECTION EST TROUVÉE (NAVIGATION INTERNE)
+                        e.preventDefault(); 
+                        pageSections.forEach(page => page.classList.remove('active'));
                         targetPage.classList.add('active');
                     }
+                    // Si targetPage n'existe pas, la page .html s'ouvrira normalement.
                 }
             });
         });
@@ -168,13 +169,9 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
         
         if (dropdownToggle) {
             dropdownToggle.addEventListener('click', function(e) {
-                // Cette fois, on n'appelle PAS preventDefault() ici, car on veut que l'onglet puisse rester actif/non-actif.
-                
-                // Gère l'affichage du sous-menu pour le tactile/clic
                 const dropdownContent = this.nextElementSibling;
                 
                 if (dropdownContent && dropdownContent.classList.contains('nav-dropdown-content')) {
-                    // Si l'élément est affiché, on le masque, sinon on l'affiche
                     if (dropdownContent.style.display === 'block') {
                         dropdownContent.style.display = 'none';
                     } else {
@@ -188,6 +185,7 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
     </script>
 </body>
 </html>
+
 
 
 
