@@ -121,70 +121,84 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         
-        // --- A. LOGIQUE DE NAVIGATION (AFFICHAGE DES PAGES ET DES ONGLETS ACTIFS) ---
+        // --- A. LOGIQUE DE NAVIGATION (Gestion des pages internes) ---
         const navLinks = document.querySelectorAll('.nav-menu a');
         const pageSections = document.querySelectorAll('.page');
 
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 
-                // e.preventDefault() a été retiré d'ici
-
                 const href = this.getAttribute('href');
                 
-                // On s'assure que le clic n'est pas celui sur l'élément du menu déroulant (le titre)
-                if (this.classList.contains('nav-dropdown-toggle')) {
-                    // On laisse la logique de déroulement se faire ensuite
+                // Si l'élément est le bouton du menu déroulant (B. LOGIQUE DU MENU DÉROULANT), on ne fait rien ici
+                if (this.id === 'archives-dropdown') {
+                    // La logique de déroulement se fera plus bas
                 } else {
-                    // Détermine l'ID de la section à afficher:
                     let targetId;
                     if (href === 'index.html') {
                         targetId = 'accueil'; 
                     } else {
-                        // Pour tous les autres fichiers .html
                         targetId = href.substring(0, href.lastIndexOf('.'));
                     }
 
                     const targetPage = document.getElementById(targetId);
 
-                    // 1. Gère les styles de l'onglet actif (doit se faire avant le changement de page)
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
 
-                    // 2. Gère l'affichage du contenu
                     if (targetPage) {
-                        // ON EMPÊCHE LE CHANGEMENT DE PAGE SEULEMENT SI LA SECTION EST TROUVÉE (NAVIGATION INTERNE)
                         e.preventDefault(); 
                         pageSections.forEach(page => page.classList.remove('active'));
                         targetPage.classList.add('active');
                     }
-                    // Si targetPage n'existe pas, la page .html s'ouvrira normalement.
                 }
             });
         });
 
         
-        // --- B. LOGIQUE DU MENU DÉROULANT (Adaptation de votre ancien code) ---
+        // --- B. LOGIQUE DU MENU DÉROULANT (Correction du basculement) ---
         const dropdownToggle = document.getElementById('archives-dropdown');
-        
-        if (dropdownToggle) {
+        const dropdownContent = dropdownToggle ? dropdownToggle.nextElementSibling : null;
+
+        if (dropdownToggle && dropdownContent) {
             dropdownToggle.addEventListener('click', function(e) {
-                const dropdownContent = this.nextElementSibling;
-                
-                if (dropdownContent && dropdownContent.classList.contains('nav-dropdown-content')) {
-                    if (dropdownContent.style.display === 'block') {
-                        dropdownContent.style.display = 'none';
-                    } else {
-                        dropdownContent.style.display = 'block';
-                    }
+                // 1. BASCULEMENT (TOGGLE) : Ouvre/ferme au clic sur le bouton
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    // Ferme tous les autres menus ouverts (sécurité)
+                    document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                        if (content !== dropdownContent) {
+                            content.style.display = 'none';
+                        }
+                    });
+                    dropdownContent.style.display = 'block';
                 }
+                
+                // Empêche l'événement de se propager plus haut (pour éviter la fermeture immédiate par l'écouteur du document)
+                e.stopPropagation(); 
             });
         }
+        
+        // --- C. NOUVELLE LOGIQUE : FERMER AU CLIC EXTÉRIEUR ---
+        document.addEventListener('click', function(e) {
+            // Vérifie si le clic n'a pas eu lieu dans un élément de menu déroulant
+            const isClickInsideDropdown = e.target.closest('.nav-dropdown');
+            
+            // Si le clic est n'importe où ailleurs sur le document...
+            if (!isClickInsideDropdown) {
+                // ...ferme tous les menus déroulants ouverts
+                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+            }
+        });
 
     });
     </script>
 </body>
 </html>
+
 
 
 
