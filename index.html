@@ -132,72 +132,84 @@ Chaque texte résulte d’un travail minutieux de vérification et de recoupemen
                 
                 // Si l'élément est le bouton du menu déroulant (B. LOGIQUE DU MENU DÉROULANT), on ne fait rien ici
                 if (this.id === 'archives-dropdown') {
-                    // La logique de déroulement se fera plus bas
+                    // La logique de déroulement est gérée plus bas
                 } else {
+                    
                     let targetId;
+                    // Détermine si l'URL est 'index.html' (accueil) ou un autre fichier
                     if (href === 'index.html') {
                         targetId = 'accueil'; 
                     } else {
+                        // Pour les autres fichiers .html, on cherche l'ID (ex: presentation.html -> 'presentation')
                         targetId = href.substring(0, href.lastIndexOf('.'));
                     }
 
                     const targetPage = document.getElementById(targetId);
 
+                    // 1. Gère les styles de l'onglet actif
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
 
+                    // 2. Gère l'affichage du contenu
                     if (targetPage) {
+                        // **CORRECTION CRUCIALE** : Empêche le changement de page SEULEMENT si la section interne existe.
                         e.preventDefault(); 
                         pageSections.forEach(page => page.classList.remove('active'));
                         targetPage.classList.add('active');
                     }
+                    // Si targetPage n'existe pas, le lien vers le fichier HTML externe fonctionne normalement.
                 }
             });
         });
 
         
-        // --- B. LOGIQUE DU MENU DÉROULANT (Correction du basculement) ---
+        // --- B. LOGIQUE DU MENU DÉROULANT (Utilisation de la classe 'open') ---
         const dropdownToggle = document.getElementById('archives-dropdown');
+        // On cible le div juste après le bouton (le contenu du menu)
         const dropdownContent = dropdownToggle ? dropdownToggle.nextElementSibling : null;
 
         if (dropdownToggle && dropdownContent) {
             dropdownToggle.addEventListener('click', function(e) {
-                // 1. BASCULEMENT (TOGGLE) : Ouvre/ferme au clic sur le bouton
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    // Ferme tous les autres menus ouverts (sécurité)
-                    document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-                        if (content !== dropdownContent) {
-                            content.style.display = 'none';
-                        }
-                    });
-                    dropdownContent.style.display = 'block';
-                }
-                
-                // Empêche l'événement de se propager plus haut (pour éviter la fermeture immédiate par l'écouteur du document)
+                // Empêche l'événement de se propager pour éviter la fermeture immédiate par l'écouteur du document
                 e.stopPropagation(); 
+                
+                // Ferme tous les autres menus ouverts (sécurité si vous en aviez plusieurs)
+                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
+                    if (content !== dropdownContent) {
+                        content.classList.remove('open');
+                    }
+                });
+
+                // Basculement : Ajoute ou retire la classe 'open'
+                dropdownContent.classList.toggle('open'); 
+            });
+            
+            // Permet aux liens du menu déroulant de fonctionner sans fermer le menu tout de suite
+            dropdownContent.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                // Optionnel : ferme le menu après avoir cliqué sur un lien dedans
+                // dropdownContent.classList.remove('open');
             });
         }
         
-        // --- C. NOUVELLE LOGIQUE : FERMER AU CLIC EXTÉRIEUR ---
+        // --- C. LOGIQUE : FERMER AU CLIC EXTÉRIEUR ---
         document.addEventListener('click', function(e) {
-            // Vérifie si le clic n'a pas eu lieu dans un élément de menu déroulant
+            // Vérifie si le clic a eu lieu à l'extérieur de la zone du menu déroulant
             const isClickInsideDropdown = e.target.closest('.nav-dropdown');
             
-            // Si le clic est n'importe où ailleurs sur le document...
             if (!isClickInsideDropdown) {
-                // ...ferme tous les menus déroulants ouverts
-                document.querySelectorAll('.nav-dropdown-content').forEach(content => {
-                    content.style.display = 'none';
+                // Ferme tous les menus qui ont la classe 'open'
+                document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
+                    content.classList.remove('open');
                 });
             }
         });
 
     });
-    </script>
+</script>
 </body>
 </html>
+
 
 
 
