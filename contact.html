@@ -49,16 +49,23 @@
         <div class="hero">
           <div>
             <div class="card">
-              <h2>Contact</h2>
-              
+              <h3>Contactez-nous</h3>
+
+              <form name="contact" method="POST" data-netlify="true">
+                 <input type="hidden" name="form-name" value="contact" />
+        
+                 <p style="display: none;">
+                     <label>Ne remplissez pas ceci : <input name="bot-field" /></label>
+                 </p>
+                
+         <aside>
               <div class="contact-info">
                 <h3>Informations de contact</h3>
                 <p><strong>Email :</strong> divisionzeitung@gmail.com</p>
               </div>
+         <aside>
 
-              <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact">
-
+             
                 <label>Nom</label>
                 <input type="text" name="nom" required>
 
@@ -71,8 +78,8 @@
                 <label>Message</label>
                 <textarea name="message" rows="6" required placeholder="Votre message..."></textarea>
 
-                <div style="margin-top:16px">
-                  <button type="submit" class="cta">Envoyer le message</button>
+                <div style="margin-top:16px" text-align: center;">
+                  <button type="submit" class="cta">Envoyer votre message</button>
                 </div>
               </form>
             </div>
