@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Anime la flèche
             const arrow = this.querySelector('.arrow');
             if (arrow) {
-                arrow.style.transform = dropdownContent.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                arrow.style.transform = dropdownContent.classList.contains('open')
+                    ? 'rotate(180deg)'
+                    : 'rotate(0deg)';
             }
         });
     }
     
-    // Fermer au clic extérieur
+    // --- FERMETURE AUTOMATIQUE DU MENU ---
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav-dropdown')) {
             document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
@@ -35,31 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- NAVIGATION ENTRE PAGES ---
-    const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-dropdown-content a)');
-    const pageSections = document.querySelectorAll('.page');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            let targetId;
-            if (href === 'index.html') {
-                targetId = 'accueil'; 
-            } else {
-                targetId = href.substring(0, href.lastIndexOf('.'));
-            }
-
-            const targetPage = document.getElementById(targetId);
-
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-
-            if (targetPage) {
-                e.preventDefault(); 
-                pageSections.forEach(page => page.classList.remove('active'));
-                targetPage.classList.add('active');
-            }
-        });
-    });
+    // ✅ NAVIGATION CLASSIQUE LAISSÉE À L'ÉTAT NATUREL
+    // (on ne bloque plus les clics sur les liens)
 });
+
