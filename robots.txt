@@ -1,9 +1,56 @@
+# robots.txt pour Division Zeitung
+# https://divisionzeitung.github.io/divisionzeitung-/
+
+# Permettre à tous les robots d'indexer le site
 User-agent: *
 Allow: /
-Disallow: /assets/
-Disallow: /scripts/
-Disallow: /private/
-Sitemap: https://divisionzeintung.github.io/divisionzeitung-/sitemap.xml
 
-# Optimisation crawl
-Crawl-delay: 1
+# Bloquer l'accès aux fichiers sensibles (si vous en avez)
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json$
+Disallow: /temp/
+Disallow: /backup/
+
+# Autoriser spécifiquement les ressources importantes
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.pdf$
+
+# Sitemap
+Sitemap: https://divisionzeitung.github.io/divisionzeitung-/sitemap.xml
+
+# Crawl-delay pour les robots respectueux (optionnel)
+# Crawl-delay: 1
+
+# Robots spécifiques (exemples)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Bloquer les mauvais robots (spam, scrapers abusifs)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
