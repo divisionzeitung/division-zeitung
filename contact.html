@@ -1,26 +1,77 @@
 <!doctype html>
 <html lang="fr">
 <head>
- <meta charset="UTF-8">
+<meta charset="UTF-8">
+<title>Contact - Division Zeitung | Nous Contacter</title>
+
+<!-- Meta viewport et compatibilité -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contactez Division Zeitung pour vos questions, commandes ou propositions d'articles. Formulaire de contact et coordonnées.">
-<meta name="keywords" content="contact division zeitung, nous contacter, commande, proposer article">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Contactez Division Zeitung pour vos questions, commandes de revues ou propositions d'articles. Formulaire de contact et coordonnées.">
+<meta name="keywords" content="contact division zeitung, nous contacter, commande revue, proposer article, formulaire contact">
+
+<!-- Meta auteur et robots (IDENTIQUE partout) -->
 <meta name="author" content="Division Zeitung">
 <meta name="robots" content="index, follow">
 
+<!-- Open Graph (Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://divisionzeitung.github.io/divisionzeitung-/contact.html">
 <meta property="og:title" content="Contact - Division Zeitung">
 <meta property="og:description" content="Contactez-nous pour toute question ou demande d'information.">
+<meta property="og:image" content="https://divisionzeitung.github.io/divisionzeitung-/images/og-image.jpg">
 
-  <link rel="canonical" href="https://divisionzeitung.github.io/divisionzeitung-/contact.html">
-  <link rel="stylesheet" href="styles.css">
- 
+<!-- Twitter Cards -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://divisionzeitung.github.io/divisionzeitung-/contact.html">
+<meta property="twitter:title" content="Contact - Division Zeitung">
+<meta property="twitter:description" content="Contactez-nous pour toute question ou demande d'information.">
+<meta property="twitter:image" content="https://divisionzeitung.github.io/divisionzeitung-/images/og-image.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://divisionzeitung.github.io/divisionzeitung-/contact.html">
+
+<!-- Favicon (IDENTIQUE partout) -->
+<link rel="icon" type="image/x-icon" href="/divisionzeitung-/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/divisionzeitung-/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/divisionzeitung-/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/divisionzeitung-/apple-touch-icon.png">
+<link rel="manifest" href="/divisionzeitung-/site.webmanifest">
+
+<!-- Thème couleur mobile (IDENTIQUE partout) -->
+<meta name="theme-color" content="#1a1a1a">
+<meta name="msapplication-TileColor" content="#1a1a1a">
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact - Division Zeitung",
+  "url": "https://divisionzeitung.github.io/divisionzeitung-/contact.html",
+  "description": "Page de contact de Division Zeitung",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Division Zeitung",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "email": "contact@divisionzeitung.com"
+    }
+  }
+}
+</script>
 </head>
 <body>
+  <!-- Skip link pour l'accessibilité (IDENTIQUE partout) -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
   <div class="overlay">
-    <main class="container">
-      <header>
+    <main class="container" id="main-content" role="main">
+      <header role="banner">
         <div class="logo">
           <img src="images/logo-site.jpg" alt="Division Zeitung Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="logo-text" style="display:none;">DZ</div>
@@ -30,14 +81,15 @@
           <p class="lead">Le magazine dédié aux archives allemandes 1939-1945</p>
         </div>
         <div class="social-links">
-          <a href="https://www.facebook.com/share/14KCaZech4M/" class="social-btn" target="_blank">
+          <a href="https://www.facebook.com/share/14KCaZech4M/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Facebook">
             <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
         </div>
       </header>
-      <nav>
+
+      <nav role="navigation" aria-label="Navigation principale">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-item">Accueil</a></li>
           <li><a href="presentation.html" class="nav-item">Présentation</a></li>
@@ -55,7 +107,8 @@
           <li><a href="newsletter.html" class="nav-item">Newsletters</a></li>
           <li><a href="contact.html" class="nav-item active">Contact</a></li>
         </ul>
-      </nav> 
+      </nav>
+
       <div id="contact" class="page active">
         <div class="hero">
           <div>
@@ -65,17 +118,17 @@
               <form name="contact" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact">
 
-                <label>Nom</label>
-                <input type="text" name="nom" required>
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required>
 
-                <label>Email</label>
-                <input type="email" name="email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-                <label>Sujet</label>
-                <input type="text" name="sujet" required>
+                <label for="sujet">Sujet</label>
+                <input type="text" id="sujet" name="sujet" required>
 
-                <label>Message</label>
-                <textarea name="message" rows="6" required placeholder="Votre message..."></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Votre message..."></textarea>
 
                 <div style="margin-top:16px">
                   <button type="submit" class="cta">Envoyer votre message</button>
@@ -85,13 +138,12 @@
           </div>
 
           <aside>
-          <div class="card contact-info">
-            <h3>Contact Direct</h3>
-            <p class="small">Des photos à partager (anonymat respecté)? Une demande spécifique ? Vous pouvez nous contacter directement par email :</p>
-            <p><strong>Email :</strong>divisionzeitung@gmail.com</p>
-          </div>
-        </aside>
-      </section>
+            <div class="card contact-info">
+              <h3>Contact Direct</h3>
+              <p class="small">Des photos à partager (anonymat respecté)? Une demande spécifique ? Vous pouvez nous contacter directement par email :</p>
+              <p><strong>Email :</strong> <a href="mailto:divisionzeitung@gmail.com">divisionzeitung@gmail.com</a></p>
+            </div>
+          </aside>
 
           <aside>
             <div class="card">
@@ -106,7 +158,8 @@
       </div>
     </main>
   </div>
-  <footer class="site-footer">
+
+  <footer class="site-footer" role="contentinfo">
     <p>© 2025 Division Zeitung | Tous droits réservés</p>
     <p>
       <a href="pages/mentions.html">Mentions légales</a> •
@@ -114,6 +167,7 @@
       <a href="pages/cgv.html">Conditions de vente</a>
     </p>
   </footer>
+
   <script src="script.js"></script> 
 </body>
 </html>
