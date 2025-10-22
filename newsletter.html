@@ -1,26 +1,71 @@
 <!doctype html>
 <html lang="fr">
-<head>  
+<head>
 <meta charset="UTF-8">
+<title>Newsletter - Division Zeitung | Restez Informé de nos Actualités</title>
+
+<!-- Meta viewport et compatibilité -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Inscrivez-vous à la newsletter Division Zeitung pour recevoir nos actualités, nouveautés et articles exclusifs d'histoire militaire.">
-<meta name="keywords" content="newsletter division zeitung, inscription, actualités, nouveautés">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Meta description et keywords -->
+<meta name="description" content="Inscrivez-vous à la newsletter Division Zeitung pour recevoir nos actualités, nouveautés, sorties de numéros et articles exclusifs d'histoire militaire.">
+<meta name="keywords" content="newsletter division zeitung, inscription, actualités, nouveautés, lettre information">
+
+<!-- Meta auteur et robots -->
 <meta name="author" content="Division Zeitung">
 <meta name="robots" content="index, follow">
 
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://divisionzeitung.github.io/divisionzeitung-/newsletter.html">
 <meta property="og:title" content="Newsletter - Division Zeitung">
 <meta property="og:description" content="Abonnez-vous à notre newsletter pour rester informé de nos actualités.">
+<meta property="og:image" content="https://divisionzeitung.github.io/divisionzeitung-/images/og-image.jpg">
 
-  <link rel="canonical" href="https://divisionzeitung.github.io/divisionzeitung-/newsletter.html">
-  <link rel="stylesheet" href="styles.css">
-  
+<!-- Twitter Cards -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://divisionzeitung.github.io/divisionzeitung-/newsletter.html">
+<meta property="twitter:title" content="Newsletter - Division Zeitung">
+<meta property="twitter:description" content="Abonnez-vous à notre newsletter pour rester informé de nos actualités.">
+<meta property="twitter:image" content="https://divisionzeitung.github.io/divisionzeitung-/images/og-image.jpg">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://divisionzeitung.github.io/divisionzeitung-/newsletter.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/divisionzeitung-/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/divisionzeitung-/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/divisionzeitung-/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/divisionzeitung-/apple-touch-icon.png">
+<link rel="manifest" href="/divisionzeitung-/site.webmanifest">
+
+<!-- Thème couleur mobile -->
+<meta name="theme-color" content="#1a1a1a">
+<meta name="msapplication-TileColor" content="#1a1a1a">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Newsletter - Division Zeitung",
+  "url": "https://divisionzeitung.github.io/divisionzeitung-/newsletter.html",
+  "description": "Inscription à la newsletter Division Zeitung"
+}
+</script>
+
 </head>
 <body>
+  <!-- Skip link pour l'accessibilité -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  
   <div class="overlay">
-    <main class="container">
-      <header>
+    <main class="container" id="main-content" role="main">
+      <header role="banner">
         <div class="logo">
           <img src="images/logo-site.jpg" alt="Division Zeitung Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="logo-text" style="display:none;">DZ</div>
@@ -30,14 +75,15 @@
           <p class="lead">Le magazine dédié aux archives allemandes 1939-1945</p>
         </div>
         <div class="social-links">
-          <a href="https://www.facebook.com/share/14KCaZech4M/" class="social-btn" target="_blank">
+          <a href="https://www.facebook.com/share/14KCaZech4M/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Facebook">
             <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
         </div>
-      </header>   
-      <nav>
+      </header>
+      
+      <nav role="navigation" aria-label="Navigation principale">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-item">Accueil</a></li>
           <li><a href="presentation.html" class="nav-item">Présentation</a></li>
@@ -56,6 +102,7 @@
           <li><a href="contact.html" class="nav-item">Contact</a></li>
         </ul>
       </nav>
+      
       <div id="newsletter" class="page active">
         <div class="card">
           <h2>Newsletter Division Zeitung</h2>
@@ -66,18 +113,19 @@
           <div class="content-item" style="flex-direction: column;">
             <div class="content-image" style="background-image:url('images/glieder versor 15 pzd01-42.jpg'); width: 100%; height: 400px; margin-bottom: 20px;"></div>
             <div class="content-info">
-                <div class="content-description">
+              <div class="content-description">
                 <p>Un extrait d'une Gliederung de la 15 Pz.Div. en Libye en janvier 1942. Des troupes indispensables à une unité : les unités de service</p>
-                <p>A gauche, nous avons les servives postaux, boucherie, boulangerie etc. Au centre les services sanitaires (transport et infirmeries).</p>
+                <p>A gauche, nous avons les services postaux, boucherie, boulangerie etc. Au centre les services sanitaires (transport et infirmeries).</p>
                 <p>A droite les unités de transport de fret, de carburant et eau et enfin les ateliers de maintenance.</p>
               </div>
             </div>
+          </div>
         </div>
-
       </div>
     </main>
   </div>
-  <footer class="site-footer">
+  
+  <footer class="site-footer" role="contentinfo">
     <p>© 2025 Division Zeitung | Tous droits réservés</p>
     <p>
       <a href="pages/mentions.html">Mentions légales</a> •
@@ -85,6 +133,7 @@
       <a href="pages/cgv.html">Conditions de vente</a>
     </p>
   </footer>
+  
   <script src="script.js"></script>
 </body>
 </html>
