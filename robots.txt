@@ -8,7 +8,7 @@ Allow: /
 # Bloquer l'accès aux fichiers sensibles (si vous en avez)
 Disallow: /admin/
 Disallow: /private/
-Disallow: *.json$
+Disallow: /*.json$
 Disallow: /temp/
 Disallow: /backup/
 
