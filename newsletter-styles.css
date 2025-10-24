@@ -1,0 +1,678 @@
+/* ========================================
+   NEWSLETTER-STYLES.CSS
+   Styles spécifiques pour la page Newsletter
+   Dépendance : styles.css (chargé en premier)
+   ======================================== */
+
+/* ==========================================
+   HERO NEWSLETTER
+   ========================================== */
+.hero-newsletter {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.95), rgba(218, 165, 32, 0.95)),
+              url('images/panzer-fond.jpg') center/cover;
+  padding: 60px 40px;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(184, 134, 11, 0.3);
+}
+
+.hero-newsletter h2 {
+  font-size: 38px;
+  margin: 0 0 16px 0;
+  color: white;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-newsletter .subtitle {
+  font-size: 20px;
+  margin: 0 0 30px 0;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.hero-newsletter .newsletter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-newsletter .newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+.hero-newsletter .newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.hero-newsletter .newsletter-form button {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.hero-newsletter .newsletter-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+}
+
+.hero-newsletter .privacy-note {
+  margin-top: 16px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* ==========================================
+   BENEFITS SECTION
+   ========================================== */
+.benefits-section {
+  margin: 50px 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.benefit-card {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 12px;
+  border: 2px solid var(--sand);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(184, 134, 11, 0.2);
+  border-color: var(--accent);
+}
+
+.benefit-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.benefit-card h4 {
+  color: var(--warm);
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.benefit-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ==========================================
+   DOCUMENT DU MOIS
+   ========================================== */
+.document-mois-section {
+  margin: 50px 0;
+}
+
+.document-featured {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--sand);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.document-featured-header {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.document-featured-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.document-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.document-featured-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.document-image-container {
+  position: relative;
+  background: #f5f5f5;
+  min-height: 400px;
+}
+
+.document-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.zoom-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.zoom-badge:hover {
+  background: var(--accent);
+  transform: scale(1.05);
+}
+
+.document-info {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.document-info h4 {
+  color: var(--warm);
+  font-size: 22px;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+}
+
+.document-info p {
+  color: #2c3e50;
+  line-height: 1.8;
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.document-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-size: 14px;
+  color: var(--warm);
+  font-weight: 600;
+}
+
+/* ==========================================
+   ARCHIVES GALLERY
+   ========================================== */
+.archives-newsletter-section {
+  margin: 50px 0;
+}
+
+.archives-newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.archive-newsletter-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.archive-newsletter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(184, 134, 11, 0.2);
+  border-color: var(--accent);
+}
+
+.archive-newsletter-image {
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.archive-newsletter-date {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.archive-newsletter-content {
+  padding: 20px;
+}
+
+.archive-newsletter-content h5 {
+  color: var(--warm);
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.archive-newsletter-content p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================
+   FAQ SECTION
+   ========================================== */
+.faq-section {
+  margin: 50px 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 30px auto 0;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid var(--sand);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--accent);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #fbfdf9, #ffffff);
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #fff9e6, #ffffff);
+}
+
+.faq-question h4 {
+  margin: 0;
+  color: var(--warm);
+  font-size: 17px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.faq-icon {
+  font-size: 20px;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 24px 20px 24px;
+}
+
+.faq-answer p {
+  color: #2c3e50;
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+/* ==========================================
+   CTA FINAL
+   ========================================== */
+.cta-newsletter-final {
+  background: linear-gradient(135deg, #fff9e6, #fffbf0);
+  border: 3px solid var(--accent);
+  border-radius: 16px;
+  padding: 50px 40px;
+  text-align: center;
+  margin: 50px 0 0 0;
+}
+
+.cta-newsletter-final h3 {
+  color: var(--warm);
+  font-size: 28px;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+}
+
+.cta-newsletter-final p {
+  color: #2c3e50;
+  font-size: 18px;
+  margin: 0 0 30px 0;
+  line-height: 1.6;
+}
+
+.cta-newsletter-final .newsletter-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+}
+
+.cta-newsletter-final .newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 16px 24px;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.cta-newsletter-final .newsletter-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.cta-newsletter-final .newsletter-form button {
+  padding: 16px 40px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cta-newsletter-final .newsletter-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+/* Tablettes */
+@media (max-width: 768px) {
+  .hero-newsletter {
+    padding: 40px 30px;
+  }
+
+  .hero-newsletter h2 {
+    font-size: 30px;
+  }
+
+  .hero-newsletter .subtitle {
+    font-size: 18px;
+  }
+
+  .hero-newsletter .newsletter-form {
+    flex-direction: column;
+  }
+
+  .hero-newsletter .newsletter-form button {
+    width: 100%;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .document-featured-content {
+    grid-template-columns: 1fr;
+  }
+
+  .document-image-container {
+    min-height: 300px;
+  }
+
+  .archives-newsletter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cta-newsletter-final {
+    padding: 40px 30px;
+  }
+
+  .cta-newsletter-final h3 {
+    font-size: 24px;
+  }
+
+  .cta-newsletter-final .newsletter-form {
+    flex-direction: column;
+  }
+
+  .cta-newsletter-final .newsletter-form button {
+    width: 100%;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 600px) {
+  .hero-newsletter {
+    padding: 30px 20px;
+  }
+
+  .hero-newsletter h2 {
+    font-size: 26px;
+  }
+
+  .hero-newsletter .subtitle {
+    font-size: 16px;
+  }
+
+  .benefit-card {
+    padding: 24px 20px;
+  }
+
+  .benefit-icon {
+    font-size: 40px;
+  }
+
+  .benefit-card h4 {
+    font-size: 18px;
+  }
+
+  .document-featured-header {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .document-featured-header h3 {
+    font-size: 20px;
+  }
+
+  .document-info {
+    padding: 24px 20px;
+  }
+
+  .document-info h4 {
+    font-size: 20px;
+  }
+
+  .document-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .archives-newsletter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-question {
+    padding: 16px 20px;
+  }
+
+  .faq-question h4 {
+    font-size: 15px;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 20px 16px 20px;
+  }
+
+  .cta-newsletter-final {
+    padding: 32px 24px;
+  }
+
+  .cta-newsletter-final h3 {
+    font-size: 22px;
+  }
+
+  .cta-newsletter-final p {
+    font-size: 16px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+  .hero-newsletter .newsletter-form input[type="email"],
+  .hero-newsletter .newsletter-form button {
+    font-size: 15px;
+  }
+
+  .document-image-container {
+    min-height: 250px;
+  }
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.benefit-card,
+.archive-newsletter-card,
+.faq-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.benefit-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* ==========================================
+   SUCCESS MESSAGE
+   ========================================== */
+.success-message {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border: 2px solid #28a745;
+  color: #155724;
+  padding: 16px 24px;
+  border-radius: 10px;
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 600;
+  display: none;
+}
+
+.success-message.show {
+  display: block;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* ==========================================
+   FIN DU FICHIER
+   ========================================== */
