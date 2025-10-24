@@ -1,0 +1,284 @@
+/* ========================================
+   STYLES POUR LES PAGES LÉGALES
+   Hérité du design principal
+   ======================================== */
+
+:root {
+    --accent: #b8860b;
+    --accent-light: #daa520;
+    --muted: #6b5b47;
+    --card: #ffffff;
+    --bg: #f6f4f0;
+    --sand: #d2b48c;
+    --warm: #8b7355;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg) url('../images/panzer-fond.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #0f172a;
+    line-height: 1.6;
+}
+
+.overlay {
+    background: rgba(246, 244, 240, 0.85);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 2px solid var(--sand);
+    padding: 20px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--warm);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+header a {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    color: var(--accent-light);
+    transform: translateY(-1px);
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 30px auto;
+    background: var(--card);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--sand);
+    box-shadow: 0 6px 20px rgba(12, 14, 20, 0.06);
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1 {
+    color: var(--warm);
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--accent);
+    font-size: 20px;
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--sand);
+}
+
+h3 {
+    color: var(--warm);
+    font-size: 16px;
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+}
+
+p {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+strong {
+    color: var(--warm);
+    font-weight: 600;
+}
+
+em {
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* ========== LISTS ========== */
+ul, ol {
+    color: var(--muted);
+    margin: 15px 0;
+    padding-left: 24px;
+}
+
+li {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+li strong {
+    color: var(--warm);
+}
+
+/* ========== LINKS ========== */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+/* ========== HR ========== */
+hr {
+    border: none;
+    border-top: 2px solid var(--sand);
+    margin: 30px 0;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border-top: 2px solid var(--sand);
+    border-radius: 0 0 12px 12px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--accent);
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: var(--accent-light);
+}
+
+/* ========== MISE À JOUR ========== */
+.last-updated {
+    background: linear-gradient(135deg, #fbfdf9, #f5f3ef);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.last-updated strong {
+    color: var(--warm);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    main {
+        margin: 20px 12px;
+        padding: 24px 16px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin: 25px 0 12px 0;
+    }
+
+    h3 {
+        font-size: 15px;
+        margin: 18px 0 8px 0;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 16px 8px;
+        padding: 20px 12px;
+    }
+
+    header {
+        padding: 16px 12px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 0 0 16px 0;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    p, li {
+        font-size: 13px;
+    }
+
+    ul, ol {
+        padding-left: 16px;
+    }
+
+    li {
+        margin: 6px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin: 12px 6px;
+        padding: 16px 10px;
+    }
+
+    header a {
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    footer {
+        padding: 16px 10px;
+    }
+}
