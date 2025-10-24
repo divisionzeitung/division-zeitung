@@ -44,8 +44,9 @@
 <meta name="theme-color" content="#1a1a1a">
 <meta name="msapplication-TileColor" content="#1a1a1a">
 
-<!-- Stylesheet -->
+<!-- Stylesheets -->
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="newsletter-styles.css">
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -104,23 +105,188 @@
       </nav>
       
       <div id="newsletter" class="page active">
-        <div class="card">
-          <h2>Newsletter Division Zeitung</h2>
+        
+        <!-- Hero Section avec formulaire -->
+        <div class="hero-newsletter">
+          <h2>📧 Newsletter Division Zeitung</h2>
+          <p class="subtitle">Soyez informé à chaque sortie de revue ! Recevez en avant-première nos nouvelles publications (4 fois par an)</p>
+          
+          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter">
+            <input type="email" name="email" placeholder="Votre adresse email" required>
+            <button type="submit">S'inscrire</button>
+          </form>
+          
+          <p class="privacy-note">
+            🔒 Vos données sont protégées. Pas de spam, désinscription possible à tout moment.
+          </p>
         </div>
 
-        <div class="card">
-          <h3>Document du mois</h3>
-          <div class="content-item" style="flex-direction: column;">
-            <div class="content-image" style="background-image:url('images/glieder versor 15 pzd01-42.jpg'); width: 100%; height: 400px; margin-bottom: 20px;"></div>
-            <div class="content-info">
-              <div class="content-description">
-                <p>Un extrait d'une Gliederung de la 15 Pz.Div. en Libye en janvier 1942. Des troupes indispensables à une unité : les unités de service</p>
-                <p>A gauche, nous avons les services postaux, boucherie, boulangerie etc. Au centre les services sanitaires (transport et infirmeries).</p>
-                <p>A droite les unités de transport de fret, de carburant et eau et enfin les ateliers de maintenance.</p>
+        <!-- Benefits Section -->
+        <div class="benefits-section">
+          <div class="section-divider">
+            <h3>Pourquoi s'inscrire ?</h3>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <span class="benefit-icon">🎯</span>
+              <h4>Nouvelles sorties</h4>
+              <p>Soyez les premiers informés de la sortie des nouvelles revues (tous les 3 mois) et bénéficiez d'un accès prioritaire.</p>
+            </div>
+
+            <div class="benefit-card">
+              <span class="benefit-icon">📜</span>
+              <h4>Document exclusif</h4>
+              <p>À chaque envoi, découvrez un document d'archive authentique commenté et analysé, visible uniquement par les abonnés.</p>
+            </div>
+
+            <div class="benefit-card">
+              <span class="benefit-icon">📖</span>
+              <h4>Sommaire détaillé</h4>
+              <p>Recevez le sommaire complet de chaque nouvelle revue avec un aperçu des articles avant tout le monde.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Document du mois actuel -->
+        <div class="document-mois-section">
+          <div class="section-divider">
+            <h3>Dernier document partagé</h3>
+          </div>
+
+          <div class="document-featured">
+            <div class="document-featured-header">
+              <h3>📅 Octobre 2025</h3>
+              <span class="document-badge">Nouveau</span>
+            </div>
+
+            <div class="document-featured-content">
+              <div class="document-image-container">
+                <div class="document-image" style="background-image: url('images/glieder versor 15 pzd01-42.jpg')"></div>
+                <div class="zoom-badge">🔍 Cliquez pour agrandir</div>
+              </div>
+
+              <div class="document-info">
+                <h4>Gliederung Versorgung - 15. Pz.Div</h4>
+                <p>Un extrait d'une Gliederung de la <strong>15. Panzer Division</strong> en Libye en janvier 1942. Ce document met en lumière des troupes indispensables souvent négligées : <strong>les unités de service</strong>.</p>
+                
+                <p>À gauche, nous avons les services postaux, boucherie, boulangerie, etc. Au centre, les services sanitaires (transport et infirmeries).</p>
+                
+                <p>À droite, les unités de transport de fret, de carburant et eau, et enfin les ateliers de maintenance. Sans ces unités logistiques, aucune division blindée ne pourrait fonctionner plus de quelques jours !</p>
+
+                <div class="document-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Date</span>
+                    <span class="meta-value">Janvier 1942</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Unité</span>
+                    <span class="meta-value">15. Pz.Div</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Théâtre</span>
+                    <span class="meta-value">Afrika Korps</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Source</span>
+                    <span class="meta-value">Bundesarchiv</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+          <div class="section-divider">
+            <h3>Questions fréquentes</h3>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>📧 À quelle fréquence recevrai-je la newsletter ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>La newsletter Division Zeitung est envoyée <strong>4 fois par an</strong>, à chaque sortie d'une nouvelle revue (environ tous les 3 mois). Vous recevrez un email contenant le sommaire de la nouvelle revue, un document d'archive exclusif, et le lien d'achat.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>🔒 Mes données sont-elles protégées ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>Absolument ! Votre adresse email est <strong>strictement confidentielle</strong> et ne sera jamais partagée avec des tiers. Elle est uniquement utilisée pour vous envoyer la newsletter Division Zeitung. Vous pouvez vous désinscrire à tout moment via le lien présent dans chaque email.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>📜 Quel type de contenu vais-je recevoir ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>À chaque sortie de revue (tous les 3 mois), vous recevrez un email contenant :</p>
+                <p>• <strong>Annonce de la nouvelle revue</strong> avec le sommaire complet</p>
+                <p>• <strong>Un document d'archive exclusif</strong> commenté (Gliederung, KTB, Meldung, etc.)</p>
+                <p>• <strong>Lien d'achat direct</strong> pour commander la revue</p>
+                <p>• <strong>Rappel des numéros précédents</strong> encore disponibles</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>💰 L'inscription à la newsletter est-elle gratuite ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>Oui, la newsletter est <strong>100% gratuite</strong> ! C'est mon moyen de partager ma passion pour l'histoire militaire et de tenir informée ma communauté. Aucun frais, aucun engagement.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>🔄 Puis-je me désinscrire facilement ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>Bien sûr ! Chaque email contient un lien de désinscription en bas de page. Un simple clic suffit pour vous désabonner instantanément. Pas de questions posées, pas de procédure compliquée.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <h4>📚 Puis-je voir les documents des newsletters précédentes ?</h4>
+                <span class="faq-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <p>Les documents partagés dans les newsletters précédentes sont <strong>exclusifs aux abonnés</strong> qui les ont reçus. En vous inscrivant maintenant, vous recevrez tous les prochains documents en avant-première !</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Final -->
+        <div class="cta-newsletter-final">
+          <h3>📬 Prêt à rejoindre la communauté ?</h3>
+          <p>Rejoignez les passionnés d'histoire militaire qui ne manquent aucune sortie de Division Zeitung !</p>
+          
+          <form name="newsletter-footer" method="POST" data-netlify="true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter-footer">
+            <input type="email" name="email" placeholder="Votre adresse email" required>
+            <button type="submit">S'inscrire gratuitement</button>
+          </form>
+
+          <div class="success-message" id="success-message">
+            ✅ Merci ! Vous êtes inscrit(e) à la newsletter. Vérifiez votre boîte mail.
+          </div>
+        </div>
+
       </div>
     </main>
   </div>
@@ -135,5 +301,36 @@
   </footer>
   
   <script src="script.js"></script>
+  <script>
+    // Toggle FAQ
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Fermer tous les autres FAQ
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Ouvrir celui-ci si il n'était pas actif
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // Message de succès après soumission (optionnel)
+    const forms = document.querySelectorAll('form[name^="newsletter"]');
+    forms.forEach(form => {
+      form.addEventListener('submit', function(e) {
+        // Netlify gère la soumission, on affiche juste un message
+        setTimeout(() => {
+          const successMsg = document.getElementById('success-message');
+          if (successMsg) {
+            successMsg.classList.add('show');
+          }
+        }, 1000);
+      });
+    });
+  </script>
 </body>
 </html>
