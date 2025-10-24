@@ -11,7 +11,7 @@
 <meta name="description" content="Articles d'histoire militaire publiés en collaboration avec les éditions Heimdal et Caraktère : études détaillées sur les unités et batailles de la Seconde Guerre mondiale.">
 <meta name="keywords" content="articles heimdal, éditions heimdal, caraktère, collaboration, études militaires, ww2">
 
-<!-- Meta auteur et robots (IDENTIQUE partout) -->
+<!-- Meta auteur et robots -->
 <meta name="author" content="Division Zeitung">
 <meta name="robots" content="index, follow">
 
@@ -32,18 +32,19 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.divisionzeitung.fr/articles-heimdal.html">
 
-<!-- Favicon (IDENTIQUE partout) -->
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Thème couleur mobile (IDENTIQUE partout) -->
+<!-- Thème couleur mobile -->
 <meta name="theme-color" content="#1a1a1a">
 <meta name="msapplication-TileColor" content="#1a1a1a">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="articles-heimdal.css">
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -61,7 +62,7 @@
 </script>
 </head>
 <body>
-  <!-- Skip link pour l'accessibilité (IDENTIQUE partout) -->
+  <!-- Skip link pour l'accessibilité -->
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <div class="overlay">
@@ -106,109 +107,363 @@
       </nav>
 
       <div id="archives" class="page active">
-        <div class="card">
+        <!-- En-tête de la page -->
+        <div class="page-header">
           <h2>Mes collaborations avec les maisons d'édition</h2>
-          <p>Depuis plusieurs années (premier article chez Heimdal en 2005), j'ai eu le grand plaisir de collaborer avec deux des principales maisons d'édition spécialisées dans l'histoire militaire de la Seconde Guerre mondiale.</p>
+          <p class="intro-text">Depuis plusieurs années (premier article chez Heimdal en 2005), j'ai eu le grand plaisir de collaborer avec deux des principales maisons d'édition spécialisées dans l'histoire militaire de la Seconde Guerre mondiale.</p>
           
-          <h3>Éditions Heimdal</h3>
-          <p>Ma première maison d'édition, grâce essentiellement à Bernard Paich (que je ne remercierai jamais assez de m'avoir fait « entrer » dans ce milieu plutôt fermé).</p>
+          <!-- Statistiques -->
+          <div class="stats-container">
+            <div class="stat-box">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Articles publiés</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Maisons d'édition</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Magazines différents</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Années d'expérience</div>
+            </div>
+          </div>
+        </div>
 
-          <ul>
-            <li>Les Beutepanzer en Normandie</li>
-            <li>Naissance de la 352.Inf.Div. – La Kampfgruppe 352</li>
-            <li>Un Alsacien dans la "SS-Wiking" – Tcherkassy</li>
-            <li>K.St.N. – Meldung – Gliederung</li>
-            <li>Les Panzerjäger en Normandie</li>
-            <li>La Lehr-Brigade.900</li>
-            <li>La 709.Inf.Div. des côtes du Nord à La Hague (1942-1944)</li>
-            <li>La 11.Pz.Div. sur le front est</li>
-            <li>Tiger au combat (s.Pz.Abt.503)</li>
-            <li>La SS-Wiking et la 13.Pz.Div. à Rostov</li>
-            <li>Les Panzer Attrappen</li>
-            <li>La Stu.Gesch.Abt. 192 (son histoire)</li>
-          </ul>
+        <!-- Section Éditions Heimdal -->
+        <div class="edition-section heimdal-section">
+          <div class="edition-header">
+            <h3>
+              <svg class="icon-book" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Éditions Heimdal
+            </h3>
+            <span class="edition-badge">12 articles</span>
+          </div>
+          <p class="edition-description">Ma première maison d'édition, grâce essentiellement à Bernard Paich (que je ne remercierai jamais assez de m'avoir fait « entrer » dans ce milieu plutôt fermé).</p>
+          
+          <div class="articles-grid">
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Les Beutepanzer en Normandie</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Naissance de la 352.Inf.Div. – La Kampfgruppe 352</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Un Alsacien dans la "SS-Wiking" – Tcherkassy</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">K.St.N. – Meldung – Gliederung</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Les Panzerjäger en Normandie</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">La Lehr-Brigade.900</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">La 709.Inf.Div. des côtes du Nord à La Hague (1942-1944)</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">La 11.Pz.Div. sur le front est</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Tiger au combat (s.Pz.Abt.503)</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">La SS-Wiking et la 13.Pz.Div. à Rostov</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">Les Panzer Attrappen</h4>
+            </div>
+            <div class="article-card">
+              <div class="article-icon">📖</div>
+              <h4 class="article-title">La Stu.Gesch.Abt. 192 (son histoire)</h4>
+            </div>
+          </div>
+        </div>
 
-          <h3>Éditions Caraktere</h3>
-          <p>Ma plus longue – et prolifique – collaboration avec cette maison d'édition, malheureusement fermée : 50 articles dans 4 des 5 revues qu'éditait Caraktere : <em>Batailles et Blindés</em>, <em>Ligne de Front</em>, <em>Los!</em>, <em>Aéro Journal</em>.</p>
+        <!-- Section Éditions Caraktere -->
+        <div class="edition-section caraktere-section">
+          <div class="edition-header">
+            <h3>
+              <svg class="icon-book" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              Éditions Caraktere
+            </h3>
+            <span class="edition-badge">50 articles</span>
+          </div>
+          <p class="edition-description">Ma plus longue – et prolifique – collaboration avec cette maison d'édition, malheureusement fermée : 50 articles dans 4 des 5 revues qu'éditait Caraktere.</p>
 
-          <!-- Section Ligne de Front -->
-          <section>
-            <h4>Magazine Ligne de Front</h4>
-            <ul>
-              <li>Les unités motocyclistes de la Wehrmacht</li>
-              <li>Les Nebelwerfer en Normandie</li>
-              <li>La bataille pour une boucle du Dniepr – Boukrine</li>
-              <li>La Division « von Broich » stoppe les Alliés en Tunisie</li>
-              <li>Les combats de l'infanterie Lehr 901</li>
-              <li>Les évadés de Stalingrad</li>
-              <li>Artilleurs contre Cosaques – Art.Rgt.34</li>
-              <li>Sang et gloire sur la Volkhov – SS « Polizei »</li>
-              <li>Gebirgsjäger dans le grand nord – Mourmansk</li>
-              <li>Sokai – Sturm Pionier 51 et StuGe.</li>
-              <li>24 heures en enfer – les 352 et 716 Inf.Div. face au débarquement (06/44)</li>
-              <li>999 Leichte Division – Afrika Division</li>
-              <li>La SS-Division « Reich » – Belgrade</li>
-              <li>La SS-Division « Totenkopf » – Luchno</li>
-              <li>À l'assaut de Brest-Litovsk</li>
-              <li>Typhon sur Moscou – le XL Pz.Korps</li>
-              <li>Comment reçoit-on la croix de fer</li>
-              <li>Dans l'enfer de Cherbourg 1944 – 709 Inf.Div</li>
-              <li>Le périple de la « Wiking » du Don au Kouban</li>
-              <li>Un officier du « NKVD » dans la tourmente</li>
-              <li>Reconnaissance mortelle de la « Totenkopf »</li>
-              <li>Duel de lourds – Dubno – Rgt « Hermann Göring »</li>
-            </ul>
-          </section>
+          <!-- Magazine Ligne de Front -->
+          <div class="magazine-subsection">
+            <div class="magazine-header">
+              <h4 class="magazine-title">
+                <span class="magazine-icon">📰</span>
+                Magazine Ligne de Front
+              </h4>
+              <span class="article-count">22 articles</span>
+            </div>
+            <div class="articles-grid">
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les unités motocyclistes de la Wehrmacht</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les Nebelwerfer en Normandie</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La bataille pour une boucle du Dniepr – Boukrine</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La Division « von Broich » stoppe les Alliés en Tunisie</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les combats de l'infanterie Lehr 901</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les évadés de Stalingrad</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Artilleurs contre Cosaques – Art.Rgt.34</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Sang et gloire sur la Volkhov – SS « Polizei »</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Gebirgsjäger dans le grand nord – Mourmansk</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Sokai – Sturm Pionier 51 et StuGe.</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">24 heures en enfer – les 352 et 716 Inf.Div. face au débarquement (06/44)</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">999 Leichte Division – Afrika Division</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La SS-Division « Reich » – Belgrade</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La SS-Division « Totenkopf » – Luchno</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">À l'assaut de Brest-Litovsk</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Typhon sur Moscou – le XL Pz.Korps</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Comment reçoit-on la croix de fer</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Dans l'enfer de Cherbourg 1944 – 709 Inf.Div</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Le périple de la « Wiking » du Don au Kouban</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Un officier du « NKVD » dans la tourmente</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Reconnaissance mortelle de la « Totenkopf »</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Duel de lourds – Dubno – Rgt « Hermann Göring »</h5>
+              </div>
+            </div>
+          </div>
 
-          <!-- Section Batailles et Blindés -->
-          <section>
-            <h4>Magazine Batailles et Blindés</h4>
-            <ul>
-              <li>Le dernier article paru chez Caraktere avant liquidation : <em>StuG! au combat – Tempête d'acier – Voronej</em></li>
-              <li>De la Belgique à Cambrai – 7 Pz.Div.</li>
-              <li>La capture de la forteresse de Vélikié Louki</li>
-              <li>Bérézina sur le Don</li>
-              <li>La bataille des frontières – 13 Pz.Div</li>
-              <li>Les StuGe. de la GD – Litzmannstadt</li>
-              <li>Les Panzer du grand Nord – La Pz.Abt z.b.v.40</li>
-              <li>Cache-cache mortel – Cassino – StuG.Abt.242</li>
-              <li>Les techniques de combat des Panzergrenadiere</li>
-              <li>La Flak-Abt. dans la SS</li>
-              <li>Combattre dans un StuG</li>
-              <li>La 23 Pz.Div. – Krivoi-Rog</li>
-              <li>La 20 Pz.Div – Bobruisk</li>
-              <li>La Division von Manteuffel au combat</li>
-              <li>Tenir – Cholm – 105 jours en enfer blanc</li>
-              <li>La Pz.Div. F.H.H – Budapest</li>
-              <li>Nashorn au combat</li>
-              <li>La SS-LAH – Taganrog</li>
-              <li>Le Totensonntag – Tobrouk</li>
-              <li>Les Panzerzüge</li>
-              <li>La StuG.Abt.226 – Barbarossa</li>
-              <li>Les Tiger de la Grossdeutschland – Akhtyrka – Août 1943</li>
-            </ul>
-          </section>
+          <!-- Magazine Batailles et Blindés -->
+          <div class="magazine-subsection">
+            <div class="magazine-header">
+              <h4 class="magazine-title">
+                <span class="magazine-icon">🎖️</span>
+                Magazine Batailles et Blindés
+              </h4>
+              <span class="article-count">21 articles</span>
+            </div>
+            <div class="articles-grid">
+              <div class="article-card featured">
+                <div class="article-icon">⭐</div>
+                <h5 class="article-title">StuG! au combat – Tempête d'acier – Voronej</h5>
+                <span class="article-note">Dernier article avant liquidation</span>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">De la Belgique à Cambrai – 7 Pz.Div.</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La capture de la forteresse de Vélikié Louki</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Bérézina sur le Don</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La bataille des frontières – 13 Pz.Div</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les StuGe. de la GD – Litzmannstadt</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les Panzer du grand Nord – La Pz.Abt z.b.v.40</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Cache-cache mortel – Cassino – StuG.Abt.242</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les techniques de combat des Panzergrenadiere</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La Flak-Abt. dans la SS</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Combattre dans un StuG</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La 23 Pz.Div. – Krivoi-Rog</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La 20 Pz.Div – Bobruisk</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La Division von Manteuffel au combat</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Tenir – Cholm – 105 jours en enfer blanc</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La Pz.Div. F.H.H – Budapest</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Nashorn au combat</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La SS-LAH – Taganrog</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Le Totensonntag – Tobrouk</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les Panzerzüge</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La StuG.Abt.226 – Barbarossa</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Les Tiger de la Grossdeutschland – Akhtyrka – Août 1943</h5>
+              </div>
+            </div>
+          </div>
 
-          <!-- Section Los! -->
-          <section>
-            <h4>Magazine Los!</h4>
-            <ul>
-              <li>Torpillés en mer de Norvège – témoignages de rescapés</li>
-              <li>Sale rencontre dans la brume – le HMS Glowworm vs Bernd von Arnim et Hipper</li>
-            </ul>
-          </section>
+          <!-- Magazine Los! -->
+          <div class="magazine-subsection">
+            <div class="magazine-header">
+              <h4 class="magazine-title">
+                <span class="magazine-icon">⚓</span>
+                Magazine Los!
+              </h4>
+              <span class="article-count">2 articles</span>
+            </div>
+            <div class="articles-grid">
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Torpillés en mer de Norvège – témoignages de rescapés</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Sale rencontre dans la brume – le HMS Glowworm vs Bernd von Arnim et Hipper</h5>
+              </div>
+            </div>
+          </div>
 
-          <!-- Section Aéro Journal -->
-          <section>
-            <h4>Magazine Aéro Journal</h4>
-            <ul>
-              <li>Autopsie d'un fiasco – Le III/SG.4 dans les Ardennes</li>
-              <li>La Légion Condor – témoignages</li>
-              <li>La KG.76 – raid sur Londres (témoignages)</li>
-            </ul>
-          </section>
+          <!-- Magazine Aéro Journal -->
+          <div class="magazine-subsection">
+            <div class="magazine-header">
+              <h4 class="magazine-title">
+                <span class="magazine-icon">✈️</span>
+                Magazine Aéro Journal
+              </h4>
+              <span class="article-count">3 articles</span>
+            </div>
+            <div class="articles-grid">
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">Autopsie d'un fiasco – Le III/SG.4 dans les Ardennes</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La Légion Condor – témoignages</h5>
+              </div>
+              <div class="article-card">
+                <div class="article-icon">📄</div>
+                <h5 class="article-title">La KG.76 – raid sur Londres (témoignages)</h5>
+              </div>
+            </div>
+          </div>
 
         </div>
+
       </div>
     </main>
   </div>
