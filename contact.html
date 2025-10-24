@@ -11,7 +11,7 @@
 <meta name="description" content="Contactez Division Zeitung pour vos questions, commandes de revues ou propositions d'articles. Formulaire de contact et coordonnées.">
 <meta name="keywords" content="contact division zeitung, nous contacter, commande revue, proposer article, formulaire contact">
 
-<!-- Meta auteur et robots (IDENTIQUE partout) -->
+<!-- Meta auteur et robots -->
 <meta name="author" content="Division Zeitung">
 <meta name="robots" content="index, follow">
 
@@ -32,18 +32,19 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.divisionzeitung.fr/contact.html">
 
-<!-- Favicon (IDENTIQUE partout) -->
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Thème couleur mobile (IDENTIQUE partout) -->
+<!-- Thème couleur mobile -->
 <meta name="theme-color" content="#1a1a1a">
 <meta name="msapplication-TileColor" content="#1a1a1a">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/contact-styles.css">
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -66,7 +67,7 @@
 </script>
 </head>
 <body>
-  <!-- Skip link pour l'accessibilité (IDENTIQUE partout) -->
+  <!-- Skip link pour l'accessibilité -->
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <div class="overlay">
@@ -110,51 +111,141 @@
       </nav>
 
       <div id="contact" class="page active">
-        <div class="hero">
-          <div>
-            <div class="card">
-              <h2>Contact</h2>
+        
+        <!-- Hero Section -->
+        <div class="contact-hero">
+          <div class="hero-icon">📧</div>
+          <h2>Contactez-moi</h2>
+          <p class="hero-subtitle">Une question sur les revues ? Une proposition de collaboration ? Des photos à partager ?</p>
+          <p class="hero-response-time">⏱️ Délai de réponse habituel : <strong>24-48 heures</strong></p>
+        </div>
 
-              <form name="contact" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contact">
-
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="sujet">Sujet</label>
-                <input type="text" id="sujet" name="sujet" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" required placeholder="Votre message..."></textarea>
-
-                <div style="margin-top:16px">
-                  <button type="submit" class="cta">Envoyer votre message</button>
-                </div>
-              </form>
-            </div>
+        <!-- Formulaire de contact principal -->
+        <div class="contact-form-container">
+          <div class="form-intro">
+            <h3>Envoyez-moi un message</h3>
+            <p>Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
           </div>
 
-          <aside>
-            <div class="card contact-info">
-              <h3>Contact Direct</h3>
-              <p class="small">Des photos à partager (anonymat respecté) Une demande spécifique ? Vous pouvez nous contacter directement par email :</p>
-              <p><strong>Email :</strong> <a href="mailto:divisionzeitung@gmail.com"><strong>divisionzeitung@gmail.com</strong></a></p>
-            </div>
-          </aside>
+          <form name="contact" method="POST" data-netlify="true" class="contact-form">
+            <input type="hidden" name="form-name" value="contact">
 
-          <aside>
-            <div class="card">
-              <h3>Horaires de réponse</h3>
-              <p class="small">Je réponds généralement aux emails sous 24-48h.</p>
-              
-              <h4 style="margin-top:20px">Collaborations</h4>
-              <p class="small">Je suis ouvert à toute Collaboration.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">
+                  <span class="label-icon">👤</span>
+                  Nom complet
+                </label>
+                <input type="text" id="nom" name="nom" required placeholder="Votre nom et prénom">
+              </div>
+
+              <div class="form-group">
+                <label for="email">
+                  <span class="label-icon">📧</span>
+                  Adresse email
+                </label>
+                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+              </div>
             </div>
-          </aside>
+
+            <div class="form-group">
+              <label for="sujet">
+                <span class="label-icon">💬</span>
+                Sujet de votre message
+              </label>
+              <input type="text" id="sujet" name="sujet" required placeholder="De quoi souhaitez-vous parler ?">
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                <span class="label-icon">✍️</span>
+                Votre message
+              </label>
+              <textarea id="message" name="message" rows="8" required placeholder="Écrivez votre message ici...&#10;&#10;N'hésitez pas à être détaillé, je prends le temps de lire chaque message attentivement."></textarea>
+              <div class="char-counter">
+                <span id="char-count">0</span> caractères
+              </div>
+            </div>
+
+            <button type="submit" class="cta submit-btn">
+              <span class="btn-icon">📤</span>
+              Envoyer mon message
+            </button>
+          </form>
+
+          <!-- Message de succès (caché par défaut) -->
+          <div class="success-message" id="success-message">
+            <div class="success-icon">✅</div>
+            <h4>Message envoyé avec succès !</h4>
+            <p>Merci pour votre message. Je vous répondrai dans les 24-48 heures.</p>
+          </div>
         </div>
+
+        <!-- Cards d'informations -->
+        <div class="info-cards-grid">
+          
+          <!-- Card 1 : Contact direct -->
+          <div class="info-card">
+            <div class="info-card-icon">📬</div>
+            <h4>Contact direct</h4>
+            <p>Vous préférez m'écrire directement par email ?</p>
+            <a href="mailto:divisionzeitung@gmail.com" class="info-link">
+              divisionzeitung@gmail.com
+            </a>
+          </div>
+
+          <!-- Card 2 : Horaires -->
+          <div class="info-card">
+            <div class="info-card-icon">⏰</div>
+            <h4>Horaires de réponse</h4>
+            <p>Je réponds généralement sous <strong>24-48 heures</strong> en semaine.</p>
+            <p class="info-note">Les messages du week-end sont traités le lundi.</p>
+          </div>
+
+          <!-- Card 3 : Collaborations -->
+          <div class="info-card">
+            <div class="info-card-icon">🤝</div>
+            <h4>Collaborations</h4>
+            <p>Je suis ouvert à toute proposition de collaboration, d'article ou de partage de documents.</p>
+            <p class="info-note">Anonymat respecté sur demande.</p>
+          </div>
+
+        </div>
+
+        <!-- Section FAQ Contact -->
+        <div class="contact-faq-section">
+          <h3>Questions fréquentes</h3>
+          
+          <div class="faq-grid">
+            <div class="faq-item-simple">
+              <h5>📦 J'ai un problème avec ma commande</h5>
+              <p>Envoyez-moi un email avec votre numéro de commande Gumroad et je vous aiderai rapidement.</p>
+            </div>
+
+            <div class="faq-item-simple">
+              <h5>📸 J'ai des photos de vétérans à partager</h5>
+              <p>Excellent ! Envoyez-moi un message avec quelques détails. L'anonymat peut être respecté si vous le souhaitez.</p>
+            </div>
+
+            <div class="faq-item-simple">
+              <h5>✍️ Je voudrais proposer un article</h5>
+              <p>Je suis toujours intéressé par les propositions sérieuses. Décrivez votre projet dans le formulaire ci-dessus.</p>
+            </div>
+
+            <div class="faq-item-simple">
+              <h5>🔍 J'ai une question historique</h5>
+              <p>N'hésitez pas à me contacter ! Si je ne connais pas la réponse, je pourrai peut-être vous orienter vers les bonnes ressources.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Final -->
+        <div class="contact-cta-final">
+          <h3>💬 Besoin d'aide ?</h3>
+          <p>N'hésitez pas à me contacter pour toute question sur les revues, les abonnements, ou simplement pour échanger sur l'histoire militaire !</p>
+          <a href="#contact" class="cta secondary" onclick="document.getElementById('nom').focus(); return false;">Remplir le formulaire</a>
+        </div>
+
       </div>
     </main>
   </div>
@@ -168,6 +259,34 @@
     </p>
   </footer>
 
-  <script src="script.js"></script> 
+  <script src="script.js"></script>
+  
+  <script>
+    // Compteur de caractères pour le textarea
+    const textarea = document.getElementById('message');
+    const charCount = document.getElementById('char-count');
+    
+    if (textarea && charCount) {
+      textarea.addEventListener('input', function() {
+        charCount.textContent = this.value.length;
+      });
+    }
+
+    // Afficher le message de succès après soumission
+    const form = document.querySelector('form[name="contact"]');
+    if (form) {
+      form.addEventListener('submit', function() {
+        // Netlify gère la soumission
+        setTimeout(() => {
+          const successMsg = document.getElementById('success-message');
+          const formContainer = document.querySelector('.contact-form');
+          if (successMsg && formContainer) {
+            formContainer.style.display = 'none';
+            successMsg.style.display = 'block';
+          }
+        }, 100);
+      });
+    }
+  </script>
 </body>
 </html>
