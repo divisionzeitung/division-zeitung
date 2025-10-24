@@ -1,23 +1,101 @@
-﻿{
-  "name": "Division Zeitung",
+{
+  "name": "Division Zeitung - Revue d'Histoire Militaire",
   "short_name": "DivZeitung",
-  "description": "Revue d'histoire militaire",
+  "description": "Revue d'histoire militaire spécialisée dans les archives allemandes 1939-1945",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#1a1a1a",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "categories": ["education", "history", "books"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Division Zeitung - Page d'accueil"
+    },
+    {
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Division Zeitung - Vue mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Revue",
+      "short_name": "Revue",
+      "description": "Accéder aux numéros de la revue",
+      "url": "/revue-division-zeitung.html",
+      "icons": [
+        {
+          "src": "/images/icon-revue.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Nous contacter",
+      "url": "/contact.html",
+      "icons": [
+        {
+          "src": "/images/icon-contact.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Newsletter",
+      "short_name": "Newsletter",
+      "description": "S'inscrire à la newsletter",
+      "url": "/newsletter.html",
+      "icons": [
+        {
+          "src": "/images/icon-newsletter.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
-
 
