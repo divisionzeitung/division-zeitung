@@ -223,6 +223,8 @@ nav {
     box-shadow: var(--shadow-md);
     border: 2px solid var(--sand);
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1000;
 }
 
 .nav-menu {
