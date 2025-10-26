@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // =====================================================
-    // MENU DÉROULANT
+    // MENU DÉROULANT - CORRIGÉ
     // =====================================================
     
     const dropdownToggle = document.getElementById('archives-dropdown');
@@ -32,6 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // NOUVEAU : Fermer le menu quand on clique sur un lien à l'intérieur
+    document.querySelectorAll('.nav-dropdown-content a').forEach(link => {
+        link.addEventListener('click', function() {
+            // Ferme tous les menus déroulants
+            document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
+                content.classList.remove('open');
+            });
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.style.transform = 'rotate(0deg)';
+            });
+        });
+    });
     
     // Fermeture automatique du menu au clic ailleurs
     document.addEventListener('click', function(e) {
@@ -161,28 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
             imageObserver.observe(img);
         });
     }
-
-    // =====================================================
-    // DÉTECTION DU THÈME SOMBRE (Optionnel - Future feature)
-    // =====================================================
-    
-    // Détecter si l'utilisateur préfère le mode sombre
-    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    // if (prefersDark) {
-    //     document.body.classList.add('dark-mode');
-    // }
-
-    // =====================================================
-    // ANALYTICS / TRACKING (À ajouter si besoin)
-    // =====================================================
-    
-    // Exemple : Google Analytics, Plausible, etc.
-    // if (typeof gtag !== 'undefined') {
-    //     gtag('event', 'page_view', {
-    //         page_title: document.title,
-    //         page_location: window.location.href
-    //     });
-    // }
 
     // =====================================================
     // CONSOLE MESSAGE (Optionnel - Pour les curieux)
