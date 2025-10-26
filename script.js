@@ -153,6 +153,24 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // =====================================================
+    // ZOOM IMAGE DOCUMENT (Page Newsletter)
+    // =====================================================
+    
+    // Attacher l'événement de zoom au badge
+    const zoomBadge = document.querySelector('.zoom-badge');
+    if (zoomBadge) {
+        zoomBadge.addEventListener('click', zoomImage);
+        zoomBadge.style.cursor = 'pointer';
+    }
+    
+    // On peut aussi ajouter le zoom directement sur l'image
+    const documentImage = document.querySelector('.document-image');
+    if (documentImage) {
+        documentImage.style.cursor = 'zoom-in';
+        documentImage.addEventListener('click', zoomImage);
+    }
+
+    // =====================================================
     // LAZY LOADING DES IMAGES (Optionnel)
     // =====================================================
     
@@ -184,6 +202,122 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%cVous êtes curieux ? Contactez-moi : divisionzeitung@gmail.com', 'font-size: 11px; color: #999;');
 
 });
+
+// =====================================================
+// FONCTION ZOOM IMAGE
+// =====================================================
+
+function zoomImage() {
+    const imageContainer = document.querySelector('.document-image-container');
+    if (!imageContainer) return;
+    
+    const image = imageContainer.querySelector('.document-image');
+    const imageSrcMatch = image.style.backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/);
+    
+    if (!imageSrcMatch) return;
+    const imageSrc = imageSrcMatch[1];
+    
+    // Créer l'overlay de zoom (fond noir)
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    // Créer l'image zoomée
+    const zoomedImage = document.createElement('img');
+    zoomedImage.src = imageSrc;
+    zoomedImage.alt = 'Document agrandi';
+    zoomedImage.style.cssText = `
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        animation: zoomIn 0.3s ease;
+    `;
+    
+    // Ajouter un indicateur de fermeture
+    const closeIndicator = document.createElement('div');
+    closeIndicator.textContent = '✕ Cliquez ou appuyez sur Échap pour fermer';
+    closeIndicator.style.cssText = `
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 10001;
+    `;
+    
+    // Ajouter les animations CSS si elles n'existent pas déjà
+    if (!document.getElementById('zoom-animations')) {
+        const style = document.createElement('style');
+        style.id = 'zoom-animations';
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes zoomIn {
+                from { transform: scale(0.8); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Assembler et afficher
+    overlay.appendChild(zoomedImage);
+    overlay.appendChild(closeIndicator);
+    document.body.appendChild(overlay);
+    
+    // Empêcher le scroll du body quand l'overlay est ouvert
+    document.body.style.overflow = 'hidden';
+    
+    // Fonction de fermeture
+    function closeOverlay() {
+        overlay.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            overlay.remove();
+            document.body.style.overflow = ''; // Rétablir le scroll
+        }, 300);
+    }
+    
+    // Fermer au clic sur l'overlay
+    overlay.addEventListener('click', closeOverlay);
+    
+    // Empêcher la fermeture si on clique sur l'image elle-même
+    zoomedImage.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // Fermer avec la touche Échap
+    const closeOnEsc = (e) => {
+        if (e.key === 'Escape') {
+            closeOverlay();
+            document.removeEventListener('keydown', closeOnEsc);
+        }
+    };
+    document.addEventListener('keydown', closeOnEsc);
+}
 
 // =====================================================
 // FONCTIONS UTILITAIRES GLOBALES
