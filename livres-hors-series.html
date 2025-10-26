@@ -11,7 +11,7 @@
 <meta name="description" content="Collection hors-série Division Zeitung : publications spéciales et ouvrages thématiques sur l'histoire militaire et les grandes unités allemandes.">
 <meta name="keywords" content="hors-série, publications spéciales, livres thématiques, division zeitung, collection">
 
-<!-- Meta auteur et robots (IDENTIQUE partout) -->
+<!-- Meta auteur et robots -->
 <meta name="author" content="Division Zeitung">
 <meta name="robots" content="index, follow">
 
@@ -32,18 +32,19 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.divisionzeitung.fr/livres-hors-series.html">
 
-<!-- Favicon (IDENTIQUE partout) -->
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Thème couleur mobile (IDENTIQUE partout) -->
+<!-- Thème couleur mobile -->
 <meta name="theme-color" content="#1a1a1a">
 <meta name="msapplication-TileColor" content="#1a1a1a">
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/livres-hors-series.css">
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -61,7 +62,7 @@
 </script>
 </head>
 <body>
-  <!-- Skip link pour l'accessibilité (IDENTIQUE partout) -->
+  <!-- Skip link pour l'accessibilité -->
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
   <div class="overlay">
@@ -105,59 +106,151 @@
       </nav>
 
       <div id="archives" class="page active">
-        <div class="card">
-          <h2>Nos anciennes publications : Livres et Hors Séries</h2>
+        
+        <!-- En-tête de la page -->
+        <div class="page-header">
+          <h2>📚 Mes anciennes publications : Livres et Hors Séries</h2>
+          <p>Retrouvez ici l'ensemble de mes publications passées : livres d'histoire militaire et hors-séries thématiques. Ces ouvrages représentent plus de 20 ans de recherches dans les archives allemandes.</p>
+          <p class="small">Ces publications ne sont plus disponibles à la vente, mais elles témoignent de mon parcours d'auteur et de chercheur.</p>
         </div>
-      </div>
 
-      <div class="card" id="histoire-militaire">
-        <h3>Livres d'Histoire Militaire</h3>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/panzer-divisions.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Panzer Divisions 1939-1945</div>
-            <div class="content-description">Histoire complète des divisions blindées allemandes, leur organisation et leurs combats.</div>
+        <!-- Statistiques -->
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Ouvrages publiés</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">60+</div>
+            <div class="stat-label">Articles publiés</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">1.5M+</div>
+            <div class="stat-label">Pages d'archives</div>
           </div>
         </div>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/wehrmacht-org.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Wehrmacht Organisation</div>
-            <div class="content-description">Structure et hiérarchie de l'armée allemande pendant la Seconde Guerre mondiale.</div>
-          </div>
-        </div>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/blitzkrieg.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Blitzkrieg Tactics</div>
-            <div class="content-description">Analyse des tactiques de guerre éclair allemandes et leur évolution.</div>
-          </div>
-        </div>
-      </div>
 
-      <div class="card" id="biographies">
-        <h3>Biographies</h3>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/panzer-divisions.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Panzer Divisions 1939-1945</div>
-            <div class="content-description">Histoire complète des divisions blindées allemandes, leur organisation et leurs combats.</div>
+        <!-- Livre 1 -->
+        <div class="livre-item archived">
+          <div class="livre-image" style="background-image:url('images/livres/panzer-divisions.jpg')"></div>
+          <div class="livre-content">
+            <h3>Panzer Divisions 1939-1945</h3>
+            
+            <div class="livre-description">
+              <strong>📖 À propos de cet ouvrage :</strong>
+              <p>Histoire complète des divisions blindées allemandes, leur organisation et leurs combats. Cet ouvrage retrace l'évolution tactique et stratégique des Panzer Divisionen tout au long de la Seconde Guerre mondiale.</p>
+              
+              <p><strong>Contenu de l'ouvrage :</strong></p>
+              <ul class="livre-specs">
+                <li>Organisation détaillée des Panzer Divisionen</li>
+                <li>Évolution des structures de 1939 à 1945</li>
+                <li>Études de batailles avec cartes d'état-major</li>
+                <li>Photos d'archives inédites (NARA et Bundesarchiv)</li>
+                <li>Tableaux d'organisation (K.St.N) complets</li>
+                <li>Témoignages de vétérans</li>
+              </ul>
+
+              <p><strong>Théâtres d'opérations couverts :</strong></p>
+              <ul class="livre-specs">
+                <li>Campagne de Pologne (1939)</li>
+                <li>Campagne de France (1940)</li>
+                <li>Front de l'Est (Barbarossa et opérations suivantes)</li>
+                <li>Afrika Korps (1941-1943)</li>
+                <li>Front occidental (1944-1945)</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/wehrmacht-org.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Wehrmacht Organisation</div>
-            <div class="content-description">Structure et hiérarchie de l'armée allemande pendant la Seconde Guerre mondiale.</div>
+
+        <!-- Livre 2 -->
+        <div class="livre-item archived">
+          <div class="livre-image" style="background-image:url('images/livres/wehrmacht-org.jpg')"></div>
+          <div class="livre-content">
+            <h3>Wehrmacht Organisation</h3>
+            
+            <div class="livre-description">
+              <strong>📖 À propos de cet ouvrage :</strong>
+              <p>Structure et hiérarchie de l'armée allemande pendant la Seconde Guerre mondiale. Un guide de référence pour comprendre l'organisation complexe de la Wehrmacht.</p>
+              
+              <p><strong>Contenu de l'ouvrage :</strong></p>
+              <ul class="livre-specs">
+                <li>Structure hiérarchique complète de la Wehrmacht</li>
+                <li>Organigrammes détaillés par type d'unité</li>
+                <li>Grades et insignes expliqués</li>
+                <li>Tableaux d'effectifs (K.St.N) par unité</li>
+                <li>Évolution des organisations de 1939 à 1945</li>
+                <li>Documents d'archives authentiques</li>
+              </ul>
+
+              <p><strong>Types d'unités étudiées :</strong></p>
+              <ul class="livre-specs">
+                <li>Infanterie (Infanterie-Division)</li>
+                <li>Blindés (Panzer-Division)</li>
+                <li>Panzergrenadiere (Infanterie motorisée)</li>
+                <li>Artillerie (Artillerie-Regiment)</li>
+                <li>Génie (Pionier-Bataillon)</li>
+                <li>Logistique et services (Versorgungstruppen)</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="content-item">
-          <div class="content-image" style="background-image:url('images/livres/blitzkrieg.jpg')"></div>
-          <div class="content-info">
-            <div class="content-title">Blitzkrieg Tactics</div>
-            <div class="content-description">Analyse des tactiques de guerre éclair allemandes et leur évolution.</div>
+
+        <!-- Livre 3 -->
+        <div class="livre-item archived">
+          <div class="livre-image" style="background-image:url('images/livres/blitzkrieg.jpg')"></div>
+          <div class="livre-content">
+            <h3>Blitzkrieg Tactics : La guerre éclair allemande</h3>
+            
+            <div class="livre-description">
+              <strong>📖 À propos de cet ouvrage :</strong>
+              <p>Analyse des tactiques de guerre éclair allemandes et leur évolution. Cet ouvrage décortique la doctrine tactique qui révolutionna l'art de la guerre entre 1939 et 1941.</p>
+              
+              <p><strong>Contenu de l'ouvrage :</strong></p>
+              <ul class="livre-specs">
+                <li>Origines et développement de la doctrine Blitzkrieg</li>
+                <li>Coordination chars-aviation-infanterie</li>
+                <li>Études de cas : Pologne, France, Balkans</li>
+                <li>Tactiques au niveau division et corps d'armée</li>
+                <li>Cartes tactiques et schémas de manœuvre</li>
+                <li>Témoignages d'officiers allemands</li>
+              </ul>
+
+              <p><strong>Batailles analysées :</strong></p>
+              <ul class="livre-specs">
+                <li>Percée de Sedan (mai 1940)</li>
+                <li>Course vers la Manche (1940)</li>
+                <li>Invasion de la Yougoslavie (1941)</li>
+                <li>Début de l'opération Barbarossa (1941)</li>
+                <li>Limites du Blitzkrieg à l'Est</li>
+                <li>Adaptation soviétique et contre-mesures</li>
+              </ul>
+            </div>
           </div>
         </div>
+
+        <!-- Info supplémentaire -->
+        <div class="card info-archives">
+          <h3>💡 À propos de ces publications</h3>
+          <p>Ces ouvrages ont été rédigés au cours de mes premières années de recherche, entre 2000 et 2010. Bien qu'ils ne soient plus disponibles à la vente, ils constituent le socle de mon travail actuel.</p>
+          <p><strong>Pourquoi ne sont-ils plus disponibles ?</strong> Ces livres ont été édités par des maisons d'édition qui ont depuis cessé leur activité, ou les tirages sont épuisés. Mon travail continue aujourd'hui à travers la revue Division Zeitung et mes nouvelles publications.</p>
+          <p>✨ <strong>Vous souhaitez voir mes travaux actuels ?</strong> <a href="revue-division-zeitung.html">Découvrez la revue Division Zeitung</a>, mon projet indépendant qui me permet d'explorer des sujets originaux sans contraintes éditoriales.</p>
+        </div>
+
+        <!-- CTA vers les nouvelles publications -->
+        <div class="card cta-nouvelles-publications">
+          <h3>📖 Découvrez mes publications actuelles</h3>
+          <p>Retrouvez mes derniers travaux de recherche dans la revue Division Zeitung, une publication trimestrielle entièrement dédiée aux archives allemandes 1939-1945.</p>
+          <div class="cta-buttons">
+            <a href="revue-division-zeitung.html" class="cta">Voir la revue</a>
+            <a href="articles-heimdal.html" class="cta secondary">Mes articles</a>
+            <a href="livres-a-la-vente.html" class="cta secondary">Livres disponibles</a>
+          </div>
+        </div>
+
       </div>
     </main>
   </div>
