@@ -24,7 +24,7 @@ html, body {
 }
 
 body {
-    background: var(--bg) url('../images/panzer-fond.jpg') no-repeat center center fixed;
+    background: var(--bg) url('../images/panzer-fond.webp') no-repeat center center fixed;
     background-size: cover;
     color: #0f172a;
     line-height: 1.6;
