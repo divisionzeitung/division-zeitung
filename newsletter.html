@@ -120,8 +120,11 @@
           <h2>📧 Newsletter Division Zeitung</h2>
           <p class="subtitle">Soyez informé à chaque sortie de revue ! Recevez en avant-première nos nouvelles publications (4 fois par an)</p>
           
-          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="newsletter">
+              <p style="display:none;">
+                <label>Don't fill this: <input name="bot-field" /></label>
+              </p>
             <input type="email" name="email" placeholder="Votre adresse email" required>
             <button type="submit">S'inscrire</button>
           </form>
@@ -285,8 +288,11 @@
           <h3>📬 Prêt à rejoindre la communauté ?</h3>
           <p>Rejoignez les passionnés d'histoire militaire qui ne manquent aucune sortie de Division Zeitung !</p>
           
-          <form name="newsletter-footer" method="POST" data-netlify="true" class="newsletter-form">
+          <form name="newsletter-footer" method="POST" data-netlify="true" class="newsletter-form" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="newsletter-footer">
+             <p style="display:none;">
+               <label>Don't fill this: <input name="bot-field" /></label>
+             </p>
             <input type="email" name="email" placeholder="Votre adresse email" required>
             <button type="submit">S'inscrire gratuitement</button>
           </form>
