@@ -405,6 +405,14 @@ function isValidEmail(email) {
     return regex.test(email);
 }
 
+// Ajoute dans script.js
+const emailLink = document.querySelector('a[href^="mailto:"]');
+if (emailLink) {
+  const user = 'divisionzeitung';
+  const domain = 'gmail.com';
+  emailLink.href = `mailto:${user}@${domain}`;
+}
+
 // Fonction pour formatter une date
 function formatDate(date) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
