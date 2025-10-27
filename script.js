@@ -1,12 +1,75 @@
 /* =====================================================
    SCRIPT.JS - Division Zeitung
+   Version avec menu mobile hamburger
    Script global pour toutes les pages
    ===================================================== */
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // =====================================================
-    // MENU DÉROULANT - CORRIGÉ
+    // MENU MOBILE HAMBURGER
+    // =====================================================
+    
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const body = document.body;
+    
+    if (mobileMenuToggle && navMenu && navOverlay) {
+        // Ouvrir/fermer le menu mobile
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        // Fermer en cliquant sur l'overlay
+        navOverlay.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+        
+        // Fermer en cliquant sur un lien (sauf dropdown toggle)
+        navMenu.querySelectorAll('.nav-item:not(.nav-dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+        
+        // Fermer avec la touche Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
+        });
+    }
+    
+    function toggleMobileMenu() {
+        const isOpen = navMenu.classList.contains('open');
+        
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    }
+    
+    function openMobileMenu() {
+        navMenu.classList.add('open');
+        navOverlay.classList.add('active');
+        mobileMenuToggle.classList.add('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        body.classList.add('menu-open');
+    }
+    
+    function closeMobileMenu() {
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        body.classList.remove('menu-open');
+    }
+    
+    // =====================================================
+    // MENU DÉROULANT (Desktop + Mobile)
     // =====================================================
     
     const dropdownToggle = document.getElementById('archives-dropdown');
@@ -16,27 +79,40 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             
-            // Trouve le parent li.nav-dropdown
             const dropdownParent = this.closest('.nav-dropdown');
             const dropdownContent = dropdownParent.querySelector('.nav-dropdown-content');
-            
-            // Toggle la classe open
-            dropdownContent.classList.toggle('open');
-            
-            // Anime la flèche
             const arrow = this.querySelector('.arrow');
-            if (arrow) {
-                arrow.style.transform = dropdownContent.classList.contains('open')
-                    ? 'rotate(180deg)'
-                    : 'rotate(0deg)';
+            
+            // Toggle
+            const isOpen = dropdownContent.classList.contains('open');
+            
+            // Fermer tous les autres dropdowns
+            document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
+                if (content !== dropdownContent) {
+                    content.classList.remove('open');
+                }
+            });
+            
+            document.querySelectorAll('.arrow').forEach(arr => {
+                if (arr !== arrow) {
+                    arr.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle celui-ci
+            if (isOpen) {
+                dropdownContent.classList.remove('open');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
+            } else {
+                dropdownContent.classList.add('open');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
             }
         });
     }
     
-    // NOUVEAU : Fermer le menu quand on clique sur un lien à l'intérieur
+    // Fermer dropdown en cliquant sur un lien
     document.querySelectorAll('.nav-dropdown-content a').forEach(link => {
         link.addEventListener('click', function() {
-            // Ferme tous les menus déroulants
             document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
                 content.classList.remove('open');
             });
@@ -46,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Fermeture automatique du menu au clic ailleurs
+    // Fermer dropdown en cliquant ailleurs
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav-dropdown')) {
             document.querySelectorAll('.nav-dropdown-content.open').forEach(content => {
@@ -204,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // =====================================================
-// FONCTION ZOOM IMAGE
+// FONCTION ZOOM IMAGE (Appelée depuis le DOM)
 // =====================================================
 
 function zoomImage() {
@@ -351,3 +427,21 @@ function copyToClipboard(text) {
         document.body.removeChild(textarea);
     }
 }
+
+// =====================================================
+// GESTION DES ERREURS GLOBALES
+// =====================================================
+
+window.addEventListener('error', function(e) {
+    console.error('Erreur JavaScript détectée:', e.error);
+    // Optionnel : envoyer à un service de monitoring
+});
+
+// Protection contre scripts bloqués
+if (!window.fetch) {
+    console.warn('Fetch API non disponible, certaines fonctionnalités peuvent ne pas fonctionner');
+}
+
+// =====================================================
+// FIN DU SCRIPT
+// =====================================================
