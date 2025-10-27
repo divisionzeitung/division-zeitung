@@ -53,7 +53,17 @@
           </a>
         </div>
       </header>
-      <nav>
+      
+      <nav role="navigation" aria-label="Navigation principale">
+        <!-- Bouton hamburger (mobile) -->
+        <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <!-- Overlay (mobile) -->
+        <div class="nav-overlay"></div>
+        <!-- Menu -->
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-item active">Accueil</a></li>
           <li><a href="presentation.html" class="nav-item">Présentation</a></li>
@@ -72,6 +82,7 @@
           <li><a href="contact.html" class="nav-item">Contact</a></li>
         </ul>
       </nav>
+      
       <div id="accueil" class="page active">
         <section class="hero">
           <div>
@@ -146,4 +157,3 @@ Chaque texte résulte d'un travail minutieux de vérification et de recoupement.
 <script src="script.js"></script>
 </body>
 </html>
-
