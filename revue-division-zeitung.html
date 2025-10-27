@@ -96,24 +96,33 @@
       </header>
       
       <nav role="navigation" aria-label="Navigation principale">
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-item">Accueil</a></li>
-          <li><a href="presentation.html" class="nav-item">Présentation</a></li>
-          <li class="nav-dropdown">
-            <span class="nav-item nav-dropdown-toggle" id="archives-dropdown">
-              Mes articles et livres <span class="arrow">▼</span>
-            </span>
-            <div class="nav-dropdown-content">
-              <a href="livres-hors-series.html">Livres et Hors Séries</a>
-              <a href="articles-heimdal.html">Articles rédigés chez les Edts Heimdal/Carakteres</a>
-              <a href="livres-a-la-vente.html">Livres a la vente</a>
-            </div>
-          </li>
-          <li><a href="revue-division-zeitung.html" class="nav-item active">La revue Division Zeitung</a></li>
-          <li><a href="newsletter.html" class="nav-item">Newsletters</a></li>
-          <li><a href="contact.html" class="nav-item">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Bouton hamburger (mobile) -->
+  <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <!-- Overlay (mobile) -->
+  <div class="nav-overlay"></div>
+  <!-- Menu -->
+  <ul class="nav-menu">
+    <li><a href="index.html" class="nav-item">Accueil</a></li>
+    <li><a href="presentation.html" class="nav-item">Présentation</a></li>
+    <li class="nav-dropdown">
+      <span class="nav-item nav-dropdown-toggle" id="archives-dropdown">
+        Mes articles et livres <span class="arrow">▼</span>
+      </span>
+      <div class="nav-dropdown-content">
+        <a href="livres-hors-series.html">Livres et Hors Séries</a>
+        <a href="articles-heimdal.html">Articles rédigés chez les Edts Heimdal/Carakteres</a>
+        <a href="livres-a-la-vente.html">Livres a la vente</a>
+      </div>
+    </li>
+    <li><a href="revue-division-zeitung.html" class="nav-item active">La revue Division Zeitung</a></li>
+    <li><a href="newsletter.html" class="nav-item">Newsletters</a></li>
+    <li><a href="contact.html" class="nav-item">Contact</a></li>
+  </ul>
+</nav>
       
       <div id="abonnement" class="page active">
         
