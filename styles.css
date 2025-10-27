@@ -89,7 +89,8 @@ body::before {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        opacity: 1;
+        opacity: 1 !important;
+        background-color: red;
     }
 }
 
