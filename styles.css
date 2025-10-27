@@ -1,6 +1,6 @@
 /* =====================================================
    STYLES.CSS - Division Zeitung
-   Version optimisée et corrigée
+   Version avec menu mobile hamburger intégré
    ===================================================== */
 
 /* =====================================================
@@ -224,7 +224,7 @@ p.lead {
 }
 
 /* =====================================================
-   NAVIGATION - AVEC FIX Z-INDEX
+   NAVIGATION - AVEC MENU MOBILE HAMBURGER
    ===================================================== */
 
 nav {
@@ -239,6 +239,42 @@ nav {
     z-index: var(--z-dropdown);
 }
 
+/* Bouton hamburger (caché par défaut) */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: var(--z-modal);
+    transition: all var(--transition-normal);
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--warm);
+    border-radius: 3px;
+    transition: all var(--transition-normal);
+}
+
+/* Animation hamburger -> X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu principal */
 .nav-menu {
     list-style: none;
     margin: 0;
@@ -287,7 +323,7 @@ nav {
     outline-offset: 2px;
 }
 
-/* Dropdown - FIX PRINCIPAL */
+/* Dropdown */
 .nav-dropdown {
     position: relative;
     z-index: var(--z-popover);
@@ -297,7 +333,7 @@ nav {
     display: none;
     position: absolute;
     background: white;
-    min-width: 200px;
+    min-width: 220px;
     box-shadow: var(--shadow-lg);
     z-index: var(--z-popover);
     border-radius: var(--radius-sm);
@@ -328,6 +364,11 @@ nav {
     background: #f5f5f5;
 }
 
+.nav-dropdown-content a.active {
+    background: var(--accent);
+    color: white;
+}
+
 .nav-dropdown-content a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: -2px;
@@ -344,6 +385,25 @@ nav {
 .nav-dropdown-toggle {
     cursor: pointer;
     user-select: none;
+}
+
+/* Overlay pour menu mobile */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    z-index: calc(var(--z-modal) - 2);
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* =====================================================
@@ -376,7 +436,7 @@ nav {
 }
 
 /* =====================================================
-   CARDS - AVEC Z-INDEX CONTRÔLÉ
+   CARDS
    ===================================================== */
 
 .card {
@@ -815,32 +875,78 @@ form label {
     }
 }
 
-/* Tablettes en mode portrait */
+/* RESPONSIVE NAVIGATION MOBILE */
 @media (max-width: 768px) {
+    /* Afficher le bouton hamburger */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    /* Menu en overlay fullscreen */
     .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
         flex-direction: column;
         align-items: stretch;
-        gap: var(--spacing-xs);
+        gap: 0;
+        padding: 80px 20px 20px 20px;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        transition: right var(--transition-normal);
+        overflow-y: auto;
+        z-index: calc(var(--z-modal) - 1);
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    /* Items du menu mobile */
+    .nav-menu > li {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
     }
 
     .nav-item {
-        text-align: center;
-        padding: var(--spacing-sm);
+        display: block;
+        padding: 16px 20px;
+        text-align: left;
+        border-radius: 0;
     }
 
-    /* Menu dropdown tactile */
-    .nav-dropdown-content {
-        position: static !important;
+    .nav-item::after {
         display: none;
+    }
+
+    /* Dropdown en mode mobile */
+    .nav-dropdown-content {
+        position: static;
         box-shadow: none;
         border: none;
         background: #f8f8f8;
-        margin: 4px 0;
-        border-radius: var(--radius-sm);
+        margin: 0;
+        border-radius: 0;
     }
 
-    .nav-dropdown.active .nav-dropdown-content {
+    .nav-dropdown-content.open {
         display: block;
+        opacity: 1;
+    }
+
+    .nav-dropdown-content a {
+        padding: 12px 20px 12px 40px;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    /* Empêcher le scroll du body quand menu ouvert */
+    body.menu-open {
+        overflow: hidden;
     }
 
     .social-links {
@@ -874,6 +980,10 @@ form label {
 
 /* Smartphones */
 @media (max-width: 600px) {
+    .nav-menu {
+        width: 90%;
+    }
+
     .logo {
         width: 56px;
         height: 56px;
@@ -942,11 +1052,6 @@ form label {
         font-size: 20px;
     }
 
-    .nav-item {
-        padding: 14px;
-        font-size: 16px;
-    }
-
     .features {
         flex-direction: column;
     }
@@ -974,7 +1079,9 @@ form label {
     .social-links,
     .site-footer,
     .cta,
-    .skip-link {
+    .skip-link,
+    .mobile-menu-toggle,
+    .nav-overlay {
         display: none !important;
     }
     
@@ -1024,24 +1131,6 @@ form label {
             transform: translateY(0);
         }
     }
-}
-
-/* =====================================================
-   DARK MODE SUPPORT (Préparé pour le futur)
-   ===================================================== */
-
-@media (prefers-color-scheme: dark) {
-    /* Décommentez quand vous voulez activer le dark mode
-    :root {
-        --card: #1e1e1e;
-        --bg: #121212;
-        --muted: #a0a0a0;
-    }
-    
-    body {
-        color: #e0e0e0;
-    }
-    */
 }
 
 /* =====================================================
