@@ -89,7 +89,7 @@ body::before {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-        opacity: 0.4;
+        opacity: 1;
     }
 }
 
