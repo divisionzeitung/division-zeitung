@@ -85,12 +85,11 @@ body::before {
 /* Image de fond uniquement sur desktop */
 @media (min-width: 769px) {
     body::before {
-        background-image: url('images/panzer-fond.webp');
+        background-image: url('/images/panzer-fond.webp');
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
         opacity: 1 !important;
-        background-color: red;
     }
 }
 
