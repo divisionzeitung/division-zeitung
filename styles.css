@@ -97,7 +97,6 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
     body::before {
         background-image: none !important;
-        opacity: 1;
     }
 }
 
