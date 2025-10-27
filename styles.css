@@ -1,17 +1,18 @@
 /* =====================================================
-   STYLES.CSS - Division Zeitung
-   Version avec menu mobile hamburger intégré
+   STYLES.CSS - Division Zeitung (OPTIMISÉ)
+   Version 2.0 - Performances améliorées
+   Compatible avec tous les fichiers HTML existants
    ===================================================== */
 
 /* =====================================================
-   VARIABLES CSS
+   VARIABLES CSS (Simplifiées et corrigées)
    ===================================================== */
 
 :root {
     /* Couleurs principales */
     --accent: #b8860b;
     --accent-light: #daa520;
-    --muted: #6b5b47;
+    --muted: #5a4a37; /* ✅ Contraste WCAG AA corrigé */
     --card: #ffffff;
     --bg: #f6f4f0;
     --sand: #d2b48c;
@@ -40,18 +41,15 @@
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
     
-    /* Z-index scale */
+    /* Z-index scale (CORRIGÉ) */
     --z-base: 1;
-    --z-dropdown: 1000;
-    --z-sticky: 1020;
-    --z-fixed: 1030;
-    --z-modal-backdrop: 1040;
-    --z-modal: 1050;
-    --z-popover: 1060;
-    --z-tooltip: 1070;
+    --z-dropdown: 100;
+    --z-overlay: 150;
+    --z-nav-mobile: 200;
+    --z-modal: 300;
     
     /* Font */
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* =====================================================
@@ -60,6 +58,10 @@
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -71,26 +73,31 @@ body {
     min-height: 100vh;
 }
 
-/* Background image avec pseudo-élément */
+/* Background image optimisé */
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/panzer-fond.webp') no-repeat center center;
-    background-size: cover;
-    opacity: 0.4;
+    inset: 0;
+    background: linear-gradient(135deg, #f6f4f0, #e8e6e2);
     z-index: -1;
-    pointer-events: none;
-    will-change: transform;
+}
+
+/* Image de fond uniquement sur desktop */
+@media (min-width: 769px) {
+    body::before {
+        background-image: url('images/panzer-fond.webp');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        opacity: 0.4;
+    }
 }
 
 /* Désactiver l'image de fond si préférence pour mouvement réduit */
 @media (prefers-reduced-motion: reduce) {
     body::before {
-        opacity: 0.2;
+        background-image: none !important;
+        opacity: 1;
     }
 }
 
@@ -118,7 +125,7 @@ body::before {
     color: #fff;
     padding: var(--spacing-xs);
     text-decoration: none;
-    z-index: var(--z-tooltip);
+    z-index: 10000;
     border-radius: 0 0 var(--radius-sm) 0;
     transition: top var(--transition-fast);
 }
@@ -248,8 +255,9 @@ nav {
     border: none;
     cursor: pointer;
     padding: 8px;
-    z-index: var(--z-modal);
+    z-index: calc(var(--z-nav-mobile) + 10);
     transition: all var(--transition-normal);
+    position: relative;
 }
 
 .mobile-menu-toggle span {
@@ -326,7 +334,7 @@ nav {
 /* Dropdown */
 .nav-dropdown {
     position: relative;
-    z-index: var(--z-popover);
+    z-index: calc(var(--z-dropdown) + 10);
 }
 
 .nav-dropdown-content {
@@ -335,7 +343,7 @@ nav {
     background: white;
     min-width: 220px;
     box-shadow: var(--shadow-lg);
-    z-index: var(--z-popover);
+    z-index: calc(var(--z-dropdown) + 20);
     border-radius: var(--radius-sm);
     top: 100%;
     left: 0;
@@ -385,6 +393,8 @@ nav {
 .nav-dropdown-toggle {
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
 }
 
 /* Overlay pour menu mobile */
@@ -398,7 +408,7 @@ nav {
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
-    z-index: calc(var(--z-modal) - 2);
+    z-index: var(--z-overlay);
 }
 
 .nav-overlay.active {
@@ -442,13 +452,14 @@ nav {
 .card {
     background: var(--card);
     border-radius: var(--radius-md);
-    padding: 20px;
+    padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
     border: 1px solid var(--sand);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     position: relative;
     z-index: var(--z-base);
+    contain: layout style paint;
 }
 
 .card:hover {
@@ -572,6 +583,7 @@ nav {
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     position: relative;
     z-index: var(--z-base);
+    contain: layout style paint;
 }
 
 .archive-item:hover {
@@ -898,7 +910,7 @@ form label {
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
         transition: right var(--transition-normal);
         overflow-y: auto;
-        z-index: calc(var(--z-modal) - 1);
+        z-index: var(--z-nav-mobile);
     }
 
     .nav-menu.open {
@@ -1107,7 +1119,7 @@ form label {
 }
 
 /* =====================================================
-   ANIMATIONS AVANCÉES
+   ANIMATIONS (Respect prefers-reduced-motion)
    ===================================================== */
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1117,9 +1129,17 @@ form label {
         animation: fadeInUp 0.6s ease both;
     }
     
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(1),
+    .archive-item:nth-child(1),
+    .feature:nth-child(1) { animation-delay: 0.1s; }
+    
+    .card:nth-child(2),
+    .archive-item:nth-child(2),
+    .feature:nth-child(2) { animation-delay: 0.2s; }
+    
+    .card:nth-child(3),
+    .archive-item:nth-child(3),
+    .feature:nth-child(3) { animation-delay: 0.3s; }
     
     @keyframes fadeInUp {
         from {
@@ -1133,17 +1153,20 @@ form label {
     }
 }
 
+/* Désactiver toutes les animations si préféré */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* =====================================================
    PERFORMANCE & OPTIMISATIONS
    ===================================================== */
-
-/* GPU Acceleration pour les animations */
-.cta,
-.nav-item,
-.card,
-.archive-item {
-    will-change: transform;
-}
 
 /* Empêcher le FOUC (Flash of Unstyled Content) */
 .page:not(.active) {
@@ -1158,3 +1181,39 @@ form label {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* Optimisation animations CSS */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   FIN DU FICHIER
+   ===================================================== */
