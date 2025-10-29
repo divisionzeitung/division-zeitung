@@ -652,13 +652,21 @@
 /* ==========================================
    GALERIE D'APERÇU SOUS LA COUVERTURE
    ========================================== */
-
-.revue-preview-gallery {
+/* Wrapper pour couverture + aperçus */
+.revue-cover-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 16px;
   align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* Galerie des aperçus - 2 images côte à côte */
+.revue-preview-gallery {
+  display: flex;
+  flex-direction: row; /* ✅ Côte à côte */
+  gap: 12px;
+  justify-content: center;
 }
 
 .preview-item {
