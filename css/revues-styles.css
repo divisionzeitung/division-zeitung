@@ -655,9 +655,10 @@
 
 .revue-preview-gallery {
   display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-top: 16px;
-  justify-content: center;
+  align-items: center;
 }
 
 .preview-item {
