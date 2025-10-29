@@ -551,6 +551,17 @@ const ImageZoom = {
 };
 
 /* =====================================================
+   FONCTION POUR APERÇUS DE REVUES
+   ===================================================== */
+
+function openPreview(element) {
+    const img = element.querySelector('img');
+    if (!img) return;
+    
+    ImageZoom.createOverlay(img.src);
+}
+
+/* =====================================================
    MODULE SMOOTH SCROLL
    ===================================================== */
 
