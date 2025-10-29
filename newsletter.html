@@ -218,7 +218,7 @@
 
           <div class="faq-container">
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question"
                 <h4>📧 À quelle fréquence recevrai-je la newsletter ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -228,7 +228,7 @@
             </div>
 
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question" 
                 <h4>🔒 Mes données sont-elles protégées ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -238,7 +238,7 @@
             </div>
 
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question" 
                 <h4>📜 Quel type de contenu vais-je recevoir ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -252,7 +252,7 @@
             </div>
 
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question" 
                 <h4>💰 L'inscription à la newsletter est-elle gratuite ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -262,7 +262,7 @@
             </div>
 
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question" 
                 <h4>🔄 Puis-je me désinscrire facilement ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -272,7 +272,7 @@
             </div>
 
             <div class="faq-item">
-              <div class="faq-question" onclick="toggleFaq(this)">
+              <div class="faq-question" 
                 <h4>📚 Puis-je voir les documents des newsletters précédentes ?</h4>
                 <span class="faq-icon">▼</span>
               </div>
@@ -315,37 +315,6 @@
     </p>
   </footer>
   
-  <script src="script.js"></script>
-  <script>
-    // Toggle FAQ
-    function toggleFaq(element) {
-      const faqItem = element.parentElement;
-      const isActive = faqItem.classList.contains('active');
-      
-      // Fermer tous les autres FAQ
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
-      });
-      
-      // Ouvrir celui-ci si il n'était pas actif
-      if (!isActive) {
-        faqItem.classList.add('active');
-      }
-    }
-
-    // Message de succès après soumission (optionnel)
-    const forms = document.querySelectorAll('form[name^="newsletter"]');
-    forms.forEach(form => {
-      form.addEventListener('submit', function(e) {
-        // Netlify gère la soumission, on affiche juste un message
-        setTimeout(() => {
-          const successMsg = document.getElementById('success-message');
-          if (successMsg) {
-            successMsg.classList.add('show');
-          }
-        }, 1000);
-      });
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
