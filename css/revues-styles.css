@@ -207,6 +207,69 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* ==========================================
+   WRAPPER POUR COUVERTURE + APERÇUS
+   ========================================== */
+.revue-cover-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   GALERIE D'APERÇU SOUS LA COUVERTURE
+   ========================================== */
+.revue-preview-gallery {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.preview-item {
+  width: 100px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--sand);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+  border-color: var(--accent);
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 11px;
+  padding: 4px;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preview-item:hover .preview-label {
+  opacity: 1;
+}
+
 .revue-content {
   flex: 1;
   display: flex;
@@ -411,10 +474,23 @@
     padding: 20px;
   }
 
+  .revue-cover-wrapper {
+    align-items: center;
+  }
+
   .revue-cover {
     width: 140px;
     height: 196px;
-    margin: 0 auto;
+  }
+
+  .revue-preview-gallery {
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .preview-item {
+    width: 80px;
+    height: 112px;
   }
 
   .revue-header {
@@ -486,6 +562,15 @@
   .revue-cover {
     width: 120px;
     height: 168px;
+  }
+
+  .preview-item {
+    width: 70px;
+    height: 98px;
+  }
+  
+  .preview-label {
+    font-size: 10px;
   }
 
   .revue-price-value {
@@ -647,91 +732,6 @@
 
   .revue-card::before {
     display: none;
-  }
-}
-/* ==========================================
-   GALERIE D'APERÇU SOUS LA COUVERTURE
-   ========================================== */
-/* Wrapper pour couverture + aperçus */
-.revue-cover-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-/* Galerie des aperçus - 2 images côte à côte */
-.revue-preview-gallery {
-  display: flex;
-  flex-direction: row; /* ✅ Côte à côte */
-  gap: 12px;
-  justify-content: center;
-}
-
-.preview-item {
-  width: 100px;
-  height: 140px;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid var(--sand);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.preview-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
-  border-color: var(--accent);
-}
-
-.preview-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.preview-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  font-size: 11px;
-  padding: 4px;
-  text-align: center;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.preview-item:hover .preview-label {
-  opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .revue-preview-gallery {
-    gap: 8px;
-  }
-  
-  .preview-item {
-    width: 80px;
-    height: 112px;
-  }
-}
-
-@media (max-width: 600px) {
-  .preview-item {
-    width: 70px;
-    height: 98px;
-  }
-  
-  .preview-label {
-    font-size: 10px;
   }
 }
 
